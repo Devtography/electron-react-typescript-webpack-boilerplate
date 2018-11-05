@@ -2,6 +2,10 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+function srcPath(path) {
+    return path.join(__dirname, path);
+}
+
 let mainConfig = {
     entry: './src/main/main.ts',
     target: 'electron-main',
@@ -15,7 +19,11 @@ let mainConfig = {
     },
     resolve: {
         alias: {
-            '~': path.join(__dirname, 'src')
+            '~': __dirname,
+            'actions': srcPath('actions'),
+            'main': srcPath('main'),
+            'reducers': srcPath('reducers'),
+            'utils': srcPath('utils')
         },
         extensions: ['.js', '.json', '.ts'],
     },
@@ -60,7 +68,10 @@ let rendererConfig = {
     },
     resolve: {
         alias: {
-            '~': path.join(__dirname, 'src')
+            '~': __dirname,
+            'public': srcPath('public'),
+            'renderer': srcPath('renderer'),
+            'utils': srcPath('utils')
         },
         extensions: ['.js', '.json', '.ts', '.tsx'],
     },
@@ -98,7 +109,7 @@ let rendererConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/renderer/index.html'),
+            template: path.resolve(__dirname, './public/index.html'),
         }),
     ],
 };

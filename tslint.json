@@ -7,8 +7,20 @@
     "jsRules": {},
     "rules": {
         "no-submodule-imports": false,
-        "no-implicit-dependencies": [true, "dev", ["~"]],
-        "no-import-side-effect": [true, { "ignore-module": "(\\.css)$" }]
-    },
-    "rulesDirectory": ["node_modules/tslint-microsoft-contrib"]
+        "no-implicit-dependencies": [
+            true,
+            "dev",
+            [
+                "~",
+                "public",
+                "actions",
+                "main",
+                "reducers",
+                "renderer",
+                "utils"
+            ]
+        ],
+        "no-import-side-effect": [true, { "ignore-module": "(\\.css)$" }],
+        "rulesDirectory": ["node_modules/tslint-microsoft-contrib"]
+    }
 }

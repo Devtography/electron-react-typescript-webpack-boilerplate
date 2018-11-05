@@ -2,9 +2,15 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "jsx": "react",
-        "baseUrl": "src/",
+        "baseUrl": "/",
         "paths": {
-            "~": ["*"]
+            "~": ["*"],
+            "public": ["public/"],
+            "actions": ["actions/"],
+            "main": ["main/"],
+            "reducers": ["reducers/"],
+            "renderer": ["renderer/"],
+            "utils": ["utils"]
         },
         "module": "ESNext",
         "moduleResolution": "node",

@@ -1,12 +1,13 @@
 {
-  "name": "electron-react-demo-base",
-  "version": "1.0.0",
-  "description": "Electron & React js demo",
+  "name": "electron-react-typescript-base-proj",
+  "version": "1.1.0",
+  "description": 
+    "Pre-configured base project for Electron + React + TypeScript + Redux",
   "main": "./dist/main.bundle.js",
   "scripts": {
     "start": "electron ./dist/main.bundle.js",
-    "development": "rimraf dist && webpack --watch --config ./webpack.dev.js --progress --colors",
-    "production": "rimraf dist && webpack --config ./webpack.prod.js --progress --colors"
+    "dev": "rimraf dist && webpack --watch --config ./webpack.dev.js --progress --colors",
+    "prod": "rimraf dist && webpack --config ./webpack.prod.js --progress --colors"
   },
   "author": "Wing Chau",
   "license": "MIT",
@@ -14,7 +15,9 @@
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "@types/react-router": "^4.0.32",
