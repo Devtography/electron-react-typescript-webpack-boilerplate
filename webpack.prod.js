@@ -14,6 +14,9 @@ let mainConfig = {
         __filename: false,
     },
     resolve: {
+        alias: {
+            '~': path.join(__dirname, 'src')
+        },
         extensions: ['.js', '.json', '.ts'],
     },
     module: {
@@ -57,6 +60,9 @@ let rendererConfig = {
         __filename: false,
     },
     resolve: {
+        alias: {
+            '~': path.join(__dirname, 'src')
+        },
         extensions: ['.js', '.json', '.ts', '.tsx'],
     },
     module: {

@@ -2,6 +2,10 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "jsx": "react",
+        "baseUrl": "src/",
+        "paths": {
+            "~": ["*"]
+        },
         "module": "ESNext",
         "moduleResolution": "node",
         "noImplicitAny": true,

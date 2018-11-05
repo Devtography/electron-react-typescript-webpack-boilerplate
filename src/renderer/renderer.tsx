@@ -5,7 +5,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 // Import the styles here to process them with webpack
-import './style.css';
+import '~/renderer/style.css';
 
 ReactDOM.render(
     <div>
