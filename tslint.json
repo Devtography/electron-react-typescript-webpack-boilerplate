@@ -15,6 +15,7 @@
                 "public",
                 "actions",
                 "main",
+                "models",
                 "reducers",
                 "renderer",
                 "utils"

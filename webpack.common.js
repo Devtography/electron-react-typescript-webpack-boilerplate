@@ -22,6 +22,7 @@ let mainConfig = {
             '~': __dirname,
             'actions': srcPath('actions'),
             'main': srcPath('main'),
+            'models': srcPath('models'),
             'reducers': srcPath('reducers'),
             'utils': srcPath('utils')
         },
@@ -70,6 +71,7 @@ let rendererConfig = {
         alias: {
             '~': __dirname,
             'public': srcPath('public'),
+            'models': srcPath('models'),
             'renderer': srcPath('renderer'),
             'utils': srcPath('utils')
         },

@@ -39,6 +39,7 @@ electron-react-typescript-base-proj/
 | | - actions/          //- Redux actions
 | | - main/             //- Electron / backend modules
 | | | - main.ts         //- Entry point of 'electron-main'
+| | - models/
 | | - reducers/         //- Redux reducers
 | | - renderer/         //- React / frontend components
 | | | - components/

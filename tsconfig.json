@@ -8,6 +8,7 @@
             "public": ["public/"],
             "actions": ["actions/"],
             "main": ["main/"],
+            "models": ["models/"],
             "reducers": ["reducers/"],
             "renderer": ["renderer/"],
             "utils": ["utils"]
