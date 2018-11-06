@@ -2,8 +2,8 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-function srcPath(path) {
-    return path.join(__dirname, path);
+function srcPath(src) {
+    return path.join(__dirname, src);
 }
 
 let mainConfig = {
