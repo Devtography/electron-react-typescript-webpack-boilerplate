@@ -47,6 +47,7 @@ electron-react-typescript-base-proj/
 | | | - renderer.tsx    //- Entry point of 'electron-renderer'
 | | - utils/            //- Common utilities
 | | - declarations.d.ts
+| - test/               //- Unit tests
 | - .gitignore
 | - package-lock.json
 | - package.json
