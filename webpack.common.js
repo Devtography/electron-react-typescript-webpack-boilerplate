@@ -20,11 +20,11 @@ let mainConfig = {
     resolve: {
         alias: {
             '~': __dirname,
-            'actions': srcPath('actions'),
-            'main': srcPath('main'),
-            'models': srcPath('models'),
-            'reducers': srcPath('reducers'),
-            'utils': srcPath('utils')
+            'actions': srcPath('src/actions'),
+            'main': srcPath('src/main'),
+            'models': srcPath('src/models'),
+            'reducers': srcPath('src/reducers'),
+            'utils': srcPath('src/utils')
         },
         extensions: ['.js', '.json', '.ts'],
     },
@@ -71,9 +71,9 @@ let rendererConfig = {
         alias: {
             '~': __dirname,
             'public': srcPath('public'),
-            'models': srcPath('models'),
-            'renderer': srcPath('renderer'),
-            'utils': srcPath('utils')
+            'models': srcPath('src/models'),
+            'renderer': srcPath('src/renderer'),
+            'utils': srcPath('src/utils')
         },
         extensions: ['.js', '.json', '.ts', '.tsx'],
     },

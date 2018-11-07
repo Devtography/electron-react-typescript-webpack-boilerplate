@@ -5,13 +5,13 @@
         "baseUrl": "/",
         "paths": {
             "~": ["*"],
-            "public": ["public/"],
-            "actions": ["actions/"],
-            "main": ["main/"],
-            "models": ["models/"],
-            "reducers": ["reducers/"],
-            "renderer": ["renderer/"],
-            "utils": ["utils"]
+            "public*": ["public/"],
+            "actions*": ["src/actions/"],
+            "main*": ["src/main/"],
+            "models*": ["src/models/"],
+            "reducers*": ["src/reducers/"],
+            "renderer*": ["src/renderer/"],
+            "utils*": ["src/utils"]
         },
         "module": "ESNext",
         "moduleResolution": "node",
