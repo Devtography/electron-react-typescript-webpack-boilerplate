@@ -7,7 +7,7 @@
     "start": "electron ./dist/main.bundle.js",
     "dev": "rimraf dist && webpack --watch --config ./webpack.dev.js --progress --colors",
     "prod": "rimraf dist && webpack --config ./webpack.prod.js --progress --colors",
-    "test": "mocha -r ts-node/register -r tsconfig-paths/register test/**/*.ts"
+    "test": "mocha -r ts-node/register -r tsconfig-paths/register \"test/**/*.ts\""
   },
   "author": "Wing Chau",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "mocha": "^5.2.0",
     "rimraf": "^2.6.2",
     "source-map-loader": "^0.2.4",
+    "spectron": "^5.0.0",
     "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.6.0",
