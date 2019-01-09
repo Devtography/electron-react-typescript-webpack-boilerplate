@@ -1,7 +1,7 @@
 {
-  "name": "electron-react-typescript-base-proj",
+  "name": "electron-react-typescript-webpack-boilerplate",
   "version": "1.1.0",
-  "description": "Pre-configured base project for Electron + React + TypeScript + Redux",
+  "description": "Pre-configured boilerplate for Electron + React + TypeScript",
   "main": "./dist/main.bundle.js",
   "scripts": {
     "start": "electron ./dist/main.bundle.js",
@@ -43,15 +43,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iamWing/electron-react-typescript-base-proj.git"
+    "url": "git+https://github.com/Devtography/electron-react-typescript-webpack-boilerplate"
   },
   "keywords": [
+    "boilerplate",
     "Electron",
+    "React",
     "Typescript",
-    "React"
+    "Webpack"
   ],
   "bugs": {
-    "url": "https://github.com/iamWing/electron-react-typescript-base-proj/issues"
+    "url": "https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues"
   },
-  "homepage": "https://github.com/iamWing/electron-react-typescript-base-proj#readme"
+  "homepage": "https://github.com/Devtography/electron-react-typescript-webpack-boilerplate#readme"
 }
