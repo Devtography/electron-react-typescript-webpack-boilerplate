@@ -15,9 +15,7 @@
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-redux": "^5.1.0",
-    "redux": "^4.0.1"
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",
