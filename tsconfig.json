@@ -19,7 +19,7 @@
         "noImplicitThis": true,
         "strictNullChecks": true,
         "sourceMap": true,
-        "target": "es2017"
+        "target": "esnext"
     },
     "exclude": ["node_modules"]
 }
