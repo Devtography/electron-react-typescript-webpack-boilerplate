@@ -14,12 +14,12 @@ const node = { __dirname: false, __filename: false };
 
 const resolve = {
   alias: {
-    '~': __dirname,
-    main: joinPaths('src/main'),
-    models: joinPaths('src/models'),
-    public: joinPaths('public'),
-    renderer: joinPaths('src/renderer'),
-    utils: joinPaths('src/utils'),
+    '@': joinPaths('src'),
+    '@mail': joinPaths('src/main'),
+    '@models': joinPaths('src/models'),
+    '@public': joinPaths('public'),
+    '@renderer': joinPaths('src/renderer'),
+    '@utils': joinPaths('src/utils'),
   },
   extensions: ['.css', '.scss', '.js', '.json', '.ts', '.tsx'],
 };

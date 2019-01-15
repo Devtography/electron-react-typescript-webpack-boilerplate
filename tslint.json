@@ -17,14 +17,12 @@
       true,
       "dev",
       [
-        "~",
-        "public",
-        "actions",
-        "main",
-        "models",
-        "reducers",
-        "renderer",
-        "utils"
+        "@",
+        "@public",
+        "@main",
+        "@models",
+        "@renderer",
+        "@utils"
       ]
     ],
     "no-import-side-effect": [
