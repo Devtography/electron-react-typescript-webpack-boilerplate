@@ -70,7 +70,7 @@ const rendererConfig = {
     rendererModules.rules.push(
       {
         test: /\.(scss|css)$/,
-        use: ['css-loader'],
+        use: ['style-loader', 'css-loader'],
       }
     );
 
