@@ -5,8 +5,8 @@
   "main": "./dist/main.bundle.js",
   "scripts": {
     "start": "electron ./dist/main.bundle.js",
-    "dev": "rimraf dist && webpack --watch --config ./webpack.dev.js --progress --colors",
-    "prod": "rimraf dist && webpack --config ./webpack.prod.js --progress --colors",
+    "dev": "rimraf dist && NODE_ENV=development webpack --watch --progress --colors",
+    "prod": "rimraf dist && NODE_ENV=production webpack --progress --colors",
     "test": "mocha -r ts-node/register -r tsconfig-paths/register \"test/**/*.ts\""
   },
   "author": "Wing Chau",
@@ -37,8 +37,7 @@
     "tslint-microsoft-contrib": "^5.2.1",
     "typescript": "^3.2.2",
     "webpack": "^4.28.1",
-    "webpack-cli": "^3.2.1",
-    "webpack-merge": "^4.2.1"
+    "webpack-cli": "^3.2.1"
   },
   "repository": {
     "type": "git",

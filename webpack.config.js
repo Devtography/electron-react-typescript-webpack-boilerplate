@@ -7,6 +7,7 @@ function srcPath(src) {
 
 let mainConfig = {
   entry: './src/main/main.ts',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   target: 'electron-main',
   output: {
     filename: 'main.bundle.js',
@@ -50,6 +51,7 @@ let mainConfig = {
 
 let rendererConfig = {
   entry: './src/renderer/renderer.tsx',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   target: 'electron-renderer',
   output: {
     filename: 'renderer.bundle.js',
