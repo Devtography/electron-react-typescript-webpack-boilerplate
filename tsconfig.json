@@ -1,25 +1,23 @@
 {
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "jsx": "react",
-        "baseUrl": "/",
-        "paths": {
-            "~": ["*"],
-            "public*": ["public/"],
-            "actions*": ["src/actions/"],
-            "main*": ["src/main/"],
-            "models*": ["src/models/"],
-            "reducers*": ["src/reducers/"],
-            "renderer*": ["src/renderer/"],
-            "utils*": ["src/utils"]
-        },
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "strictNullChecks": true,
-        "sourceMap": true,
-        "target": "es2017"
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "baseUrl": "/",
+    "paths": {
+      "@/*": ["src/*"],
+      "@public/*": ["public/*"],
+      "@main/*": ["src/main/*"],
+      "@models/*": ["src/models/*"],
+      "@renderer*/": ["src/renderer/*"],
+      "@utils/*": ["src/utils/*"]
     },
-    "exclude": ["node_modules"]
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "target": "esnext"
+  },
+  "exclude": ["node_modules"]
 }
