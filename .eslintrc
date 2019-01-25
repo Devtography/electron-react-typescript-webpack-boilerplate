@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "rules": {
+    "no-unused-vars": "warn",
+    "max-len": [
+      "error",
+      {
+        "ignoreUrls": true
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "webpack.*.js",
+          "test/**/*.js"
+        ]
+      }
+    ],
+    "sort-imports": 2,
+    "import/prefer-default-export": 0,
+    "import/no-default-export": 2,
+    "import/no-named-default": 0,
+    "react/jsx-no-bind": false
+  },
+  "plugins": [
+    "import"
+  ],
+  "settings": {
+    "import/resolver": "webpack"
+  }
+}
