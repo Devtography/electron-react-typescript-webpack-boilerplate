@@ -6,12 +6,15 @@
   ],
   "jsRules": {},
   "rules": {
+    "align": [true, "statements", "members", "elements"],
     "export-name": [
       true,
       {
         "ignore-case": true
       }
     ],
+    "max-line-length": [true, 80],
+    "no-any": false,
     "no-submodule-imports": false,
     "no-implicit-dependencies": [
       true,
@@ -31,6 +34,7 @@
         "ignore-module": "(\\.css)$"
       }
     ],
+    "no-increment-decrement": ["allow-for-loops"],
     "rulesDirectory": [
       "node_modules/tslint-microsoft-contrib"
     ]

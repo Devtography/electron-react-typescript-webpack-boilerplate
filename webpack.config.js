@@ -2,85 +2,66 @@ const lodash = require('lodash');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-function joinPaths(src) {
+function srcPaths(src) {
   return path.join(__dirname, src);
 }
 
+const isEnvProduction = process.env.NODE_ENV === 'production';
+const isEnvDevelopment = process.env.NODE_ENV === 'development';
+
 // #region Common settings
-const mode =
-  process.env.NODE_ENV === 'production' ? 'production' : 'development';
-
-const node = { __dirname: false, __filename: false };
-
-const resolve = {
-  alias: {
-    '@': joinPaths('src'),
-    '@mail': joinPaths('src/main'),
-    '@models': joinPaths('src/models'),
-    '@public': joinPaths('public'),
-    '@renderer': joinPaths('src/renderer'),
-    '@utils': joinPaths('src/utils'),
-  },
-  extensions: ['.css', '.scss', '.js', '.json', '.ts', '.tsx'],
-};
-
-const commonModules = {
-  rules: [
-    {
-      test: /\.(ts|tsx)$/,
-      exclude: /node_modules/,
-      loader: 'ts-loader',
+const commonConfig = {
+  devtool: isEnvDevelopment ? 'source-map' : false,
+  mode: isEnvProduction ? 'production' : 'development',
+  output: { path: srcPaths('dist') },
+  node: { __dirname: false, __filename: false },
+  resolve: {
+    alias: {
+      '@': srcPaths('src'),
+      '@main': srcPaths('src/main'),
+      '@models': srcPaths('src/models'),
+      '@public': srcPaths('public'),
+      '@renderer': srcPaths('src/renderer'),
+      '@utils': srcPaths('src/utils'),
     },
-    {
-      test: /\.(jpg|png|svg|ico)$/,
-      loader: 'file-loader',
-      options: {
-        name: '[path][name].[ext]',
+    extensions: ['.js', '.json', '.ts', '.tsx'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader',
       },
-    },
-  ],
-};
-// #endregion
-
-const mainConfig = {
-  entry: './src/main/main.ts',
-  mode,
-  target: 'electron-main',
-  output: {
-    filename: 'main.bundle.js',
-    path: joinPaths('dist'),
-  },
-  node,
-  resolve,
-  module: commonModules,
-};
-
-const rendererConfig = {
-  entry: './src/renderer/renderer.tsx',
-  mode,
-  target: 'electron-renderer',
-  output: {
-    filename: 'renderer.bundle.js',
-    path: joinPaths('dist'),
-  },
-  node,
-  resolve,
-  module: (function () { 
-    const rendererModules = lodash.cloneDeep(commonModules);
-    rendererModules.rules.push(
       {
         test: /\.(scss|css)$/,
         use: ['style-loader', 'css-loader'],
-      }
-    );
-
-    return rendererModules;
-  })(),
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public/index.html'),
-    }),
-  ],
+      },
+      {
+        test: /\.(jpg|png|svg|ico|icns)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+      },
+    ],
+  },
 };
+// #endregion
+
+const mainConfig = lodash.cloneDeep(commonConfig);
+mainConfig.entry = './src/main/main.ts';
+mainConfig.target = 'electron-main';
+mainConfig.output.filename = 'main.bundle.js';
+
+const rendererConfig = lodash.cloneDeep(commonConfig);
+rendererConfig.entry = './src/renderer/renderer.tsx';
+rendererConfig.target = 'electron-renderer';
+rendererConfig.output.filename = 'renderer.bundle.js';
+rendererConfig.plugins = [
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, './public/index.html'),
+  }),
+];
 
 module.exports = [mainConfig, rendererConfig];
