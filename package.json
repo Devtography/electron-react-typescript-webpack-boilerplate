@@ -7,7 +7,22 @@
     "start": "electron ./dist/main.bundle.js",
     "dev": "rimraf dist && NODE_ENV=development webpack --watch --progress --colors",
     "prod": "rimraf dist && NODE_ENV=production webpack --progress --colors",
-    "test": "mocha -r ts-node/register -r tsconfig-paths/register \"test/**/*.ts\""
+    "test": "mocha -r ts-node/register -r tsconfig-paths/register \"test/**/*.ts\"",
+    "build:win": "electron-builder build --win --x64",
+    "build:mac": "electron-builder build --mac --x64"
+  },
+  "build": {
+    "appId": "com.devtography.electron_boilerplate",
+    "productName": "Electron+React+TypeScript Boilerplate",
+    "directories": {
+      "app": "./dist/",
+      "output": "./out/"
+    },
+    "win": {
+      "target": "nsis",
+      "asar": false
+    },
+    "buildVersion": "1.1.0"
   },
   "author": "Wing Chau",
   "license": "MIT",
