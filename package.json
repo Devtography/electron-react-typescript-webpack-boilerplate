@@ -39,6 +39,7 @@
     "@types/react-router-dom": "^4.3.1",
     "acorn": "^6.0.5",
     "ajv": "^6.6.2",
+    "copy-pkg-json-webpack-plugin": "0.0.38",
     "css-loader": "^1.0.1",
     "electron-builder": "^20.38.5",
     "eslint": "^5.3.0",
