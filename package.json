@@ -1,6 +1,6 @@
 {
   "name": "electron-react-typescript-webpack-boilerplate",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Pre-configured boilerplate for Electron + React + TypeScript",
   "main": "./dist/main.bundle.js",
   "scripts": {
@@ -24,7 +24,7 @@
     },
     "buildVersion": "1.1.0"
   },
-  "author": "Wing Chau",
+  "author": "Wing Chau @Devtography",
   "license": "MIT",
   "dependencies": {
     "@types/react": "^16.7.18",
