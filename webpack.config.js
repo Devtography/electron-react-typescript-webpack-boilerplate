@@ -1,4 +1,5 @@
 const lodash = require('lodash');
+const CopyPkgJsonPlugin = require('copy-pkg-json-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -53,6 +54,16 @@ const mainConfig = lodash.cloneDeep(commonConfig);
 mainConfig.entry = './src/main/main.ts';
 mainConfig.target = 'electron-main';
 mainConfig.output.filename = 'main.bundle.js';
+mainConfig.plugins = [
+  new CopyPkgJsonPlugin({
+    remove: ['scripts', 'devDependencies', 'build'],
+    replace: {
+      main: './main.bundle.js',
+      scripts: { start: 'electron ./main.bundle.js' },
+      postinstall: 'electron-builder install-app-deps',
+    },
+  }),
+];
 
 const rendererConfig = lodash.cloneDeep(commonConfig);
 rendererConfig.entry = './src/renderer/renderer.tsx';
