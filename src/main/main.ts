@@ -14,7 +14,7 @@ function createWindow(): void {
         width: 800,
         webPreferences: {
             webSecurity: false,
-            devTools: false
+            devTools: process.env.NODE_ENV === 'production' ? false : true
         }
     });
 
@@ -26,9 +26,6 @@ function createWindow(): void {
             slashes: true
         })
     );
-
-    // Open the DevTools.
-    mainWindow.webContents.openDevTools();
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {

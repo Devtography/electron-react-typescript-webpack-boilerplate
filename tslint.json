@@ -1,28 +1,42 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended",
-        "tslint-microsoft-contrib"
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-microsoft-contrib"
+  ],
+  "jsRules": {},
+  "rules": {
+    "align": [true, "statements", "members", "elements"],
+    "export-name": [
+      true,
+      {
+        "ignore-case": true
+      }
     ],
-    "jsRules": {},
-    "rules": {
-        "export-name": [true, {"ignore-case": true}],
-        "no-submodule-imports": false,
-        "no-implicit-dependencies": [
-            true,
-            "dev",
-            [
-                "~",
-                "public",
-                "actions",
-                "main",
-                "models",
-                "reducers",
-                "renderer",
-                "utils"
-            ]
-        ],
-        "no-import-side-effect": [true, { "ignore-module": "(\\.css)$" }],
-        "rulesDirectory": ["node_modules/tslint-microsoft-contrib"]
-    }
+    "max-line-length": [true, 80],
+    "no-any": false,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      [
+        "@",
+        "@public",
+        "@main",
+        "@models",
+        "@renderer",
+        "@utils"
+      ]
+    ],
+    "no-import-side-effect": [
+      true,
+      {
+        "ignore-module": "(\\.css)$"
+      }
+    ],
+    "no-increment-decrement": ["allow-for-loops"],
+    "rulesDirectory": [
+      "node_modules/tslint-microsoft-contrib"
+    ]
+  }
 }
