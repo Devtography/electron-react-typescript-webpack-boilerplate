@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## 2.0.0 - 2018-02-03
-v2.0.0 is a major release that refactored the most part of the boilerplate.
+## 2.0.0 - 2018-02-04
+v2.0.0 is a major release that most part of the boilerplate has been rewritten.
 
 ### Added
 - ESLint for code checking on Javascript files.
@@ -21,17 +21,17 @@ v2.0.0 is a major release that refactored the most part of the boilerplate.
   file and pack into Webpack's bundled package for production.
 - Build commands `build:mac` & `build:win` to package & build the installer of 
   your Electron app for macOS & Windows using `electron-builder`.
-  - _`asar` archiving is disabled by default for Windows build as some code 
-    will not work properly if it's on (saying based on experience). Users can 
-    turn it back on by removing `asar: false` in `build` section of
-    `package.json`._
+- README section "Building the installer for your Electron app" & sub-section 
+  "Extra options".
 
 ### Changed
 - Refactored Webpack config file to have `mainConfig` & `rendererConfig` 
   cleaned up, and set mode by environment variable.
 - `.gitignore` to ignore folder `out/` which will be auto-generated during the 
   build process.
-- README to refactor the changes made in `v2.0.0`.
+- README section "How does it work?" is now renamed to "Getting started" & 
+  completed the documentation of this section.
+- README section "Folder structure" to reflect the changes in `v2.0.0`.
 
 ### Fixed
 - CSS files fail to inject into views issue by setting Webpack to use 
