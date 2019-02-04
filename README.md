@@ -14,26 +14,26 @@ git clone https://github.com/iamWing/electron-react-typescript-base-proj.git
 ```json
 // edit the following fields in package.json for your own project
 {
-  "name": {your-project-name},
-  "version": {whatever-you-like},
-  "description": {your-own-description},
+  "name": your-project-name,
+  "version": whatever-you-like,
+  "description": your-own-description,
   "build": {
-    "appId": {your-app-id},
-    "productName": {your-product-name},
-    "buildVersion": {whatever-you-like}
+    "appId": your-app-id,
+    "productName": your-product-name,
+    "buildVersion": whatever-you-like
   },
-  "author": {who's-the-author?},
-  "license": {if-you-don't-want-to-use-MIT},
-  "repository": {type-and-link-of-your-repo},
-  "keywords": {keywords-of-your-project},
-  "bugs": {issue-page-of-your-repo},
-  "homepage": {homepage-of-your-repo}
+  "author": who's-the-author?,
+  "license": if-you-don't-want-to-use-MIT,
+  "repository": type-and-link-of-your-repo,
+  "keywords": keywords-of-your-project,
+  "bugs": issue-page-of-your-repo,
+  "homepage": homepage-of-your-repo
 }
 ```
 
 Then install all the `node_modules` needed by executing the following command:
 ```bash
-cd {folder-containing-the-cloned-boilerplate}
+cd folder-containing-the-cloned-boilerplate
 npm run install
 ```
 
@@ -110,6 +110,10 @@ electron-react-typescript-base-proj/
 | - tslint.json         //- TSLint config
 | - webpack.config.js   //- Webpack config
 ```
+
+## Author
+
+[Wing Chau](https://github.com/iamWing) [@Devtography](https://github.com/Devtography)
 
 ## License
 Electron React TypeScript Webpack Boilerplate is open source software 
