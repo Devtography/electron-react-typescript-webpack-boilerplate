@@ -39,6 +39,7 @@
     "acorn": "^6.0.5",
     "ajv": "^6.6.2",
     "copy-pkg-json-webpack-plugin": "0.0.38",
+    "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
     "electron": "^3.1.2",
     "electron-builder": "^20.38.5",
