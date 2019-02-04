@@ -6,8 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.1] - 2018-02-05
+`v2.0.1` is a minor hotfix release patched the `NODE_ENV` not set on Windows 
+issue.
+
+### Added
+- Package `cross-env` as `devDependencies`.
+- README section "Author".
+
+### Fixed
+- NPM scripts won't set environment variables on Windows issue.
+
 ## 2.0.0 - 2018-02-04
-v2.0.0 is a major release that most part of the boilerplate has been rewritten.
+`v2.0.0` is a major release that most part of the boilerplate has been rewritten.
 
 ### Added
 - ESLint for code checking on Javascript files.
@@ -55,4 +66,5 @@ v2.0.0 is a major release that most part of the boilerplate has been rewritten.
     isn't based on this boilerplate.
 - Separated Webpack config files for `development` & `production` mode.
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.0...v2.0.1
