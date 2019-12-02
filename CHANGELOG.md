@@ -6,6 +6,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.2] - 2019-12-02
+`v2.0.2` is a minor hotfix release fixed the documentation error and build 
+error on `macOS Catalina(10.15+)`.
+
+### Added
+- Extended README section `Getting started` with `npm start` command 
+  description.
+- README section `Known issue`.
+
+### Changed
+- Minor version upgrades on package dependencies.
+- `macOS` build target to `pkg` from default `dmg` due to no 32-bit apps 
+  support from `macOS Catalina` that caused `electron-builder` fails to build 
+  `dmg` image on `macOS` prior to `electron-builder@21.2.0`.  
+  _`pkg` build is unaffected and is used as a workaround for the current version 
+  prior to the major version upgrades on dependencies in next release._  
+  _Related issue: [electron-builder #3990](https://github.com/electron-userland/electron-builder/issues/3990)_
+
+### Fixed
+- [Issue #2] - incorrect command `npm run install` to `npm install` in `README`.
+
 ## [2.0.1] - 2018-02-05
 `v2.0.1` is a minor hotfix release patched the `NODE_ENV` not set on Windows 
 issue.
@@ -66,5 +87,8 @@ issue.
     isn't based on this boilerplate.
 - Separated Webpack config files for `development` & `production` mode.
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.2...HEAD
 [2.0.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.0...v2.0.1
+[2.0.2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.1...v2.0.2
+
+[Issue #2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/2
