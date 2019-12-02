@@ -18,6 +18,9 @@
       "app": "./dist/",
       "output": "./out/"
     },
+    "mac": {
+      "target": "pkg"
+    },
     "win": {
       "target": "nsis",
       "asar": false
