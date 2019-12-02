@@ -6,7 +6,7 @@ This boilerplate currently works on macOS and Windows. If something doesn't
 work, please [file and issue](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/new).
 
 ## Getting started
-```bash
+```sh
 // execute
 git clone https://github.com/iamWing/electron-react-typescript-base-proj.git
 ```
@@ -32,15 +32,21 @@ git clone https://github.com/iamWing/electron-react-typescript-base-proj.git
 ```
 
 Then install all the `node_modules` needed by executing the following command:
-```bash
+```sh
 cd folder-containing-the-cloned-boilerplate
-npm run install
+npm install
 ```
 
 Finally execute the following command to start Webpack in development mode and 
-watch the changes on source files.
-```bash
+watch the changes on source files for live rebuild on code changes.
+```sh
 npm run dev
+```
+
+The `npm run dev` command won't start your app and get your app shows on the 
+screen. To start your app, execute the following command:
+```sh
+npm start
 ```
 
 ## Building the installer for your Electron app
@@ -48,12 +54,12 @@ The boilerplate is currently configured to package & build the installer of
 your app for macOS & Windows using `electron-builder`. 
 
 For macOS, execute:
-```bash
+```sh
 npm run build:mac
 ```
 
 For Windows, execute:
-```bash
+```sh
 npm run build:win
 ```
 _** `asar` archiving is disabled by default in Windows build as it can cause 
@@ -77,6 +83,7 @@ possible by changing the build scripts in `package.json` as below:
 "scripts": {
     ...
     "build:win": "electron-builder build --win --ia32",
+    // Works only on macOS version < 10.15
     "build:mac": "electron-builder build --mac --ia32"
 },
 ```
@@ -84,6 +91,19 @@ possible by changing the build scripts in `package.json` as below:
 Builds for Linux, armv71, and arm64 can also be configured by modifying the 
 build scripts in `package.json`, but those aren't tested yet. For details, 
 please refer to [documents of `electron-builder`](https://www.electron.build/cli).
+
+## Known issues
+
+- `dmg` build action on `macOS Catalina (10.15)` fails due to Apple ditches 
+  support for 32-bit apps from `10.15` onwards (Don't worry, you are still 
+  building 64-bit apps, just some dependencies of the builder are still 32-bit).
+  Further details retailed to this issue can be found 
+  [here](https://github.com/electron-userland/electron-builder/issues/3990).  
+  Application installer built on `macOS` is now set to build `pkg` file 
+  instead of `dmg` as a workaround in the current version. The issue can be 
+  fixed by applying a major version upgrade of `electron-builder` to `21.2.0+` 
+  but it hasn't been tested on this boilerplate yet. This issue is planned to 
+  be addressed alongside with major version upgrades on other dependencies.
 
 ## Folder structure
 ```
