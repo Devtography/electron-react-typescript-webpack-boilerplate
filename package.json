@@ -31,14 +31,16 @@
   "license": "MIT",
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@types/react-router": "^4.4.5",
-    "@types/react-router-dom": "^4.3.5",
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.6",
     "copy-pkg-json-webpack-plugin": "0.0.38",
     "cross-env": "^5.2.1",
     "css-loader": "^1.0.1",
