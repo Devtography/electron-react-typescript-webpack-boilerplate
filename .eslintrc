@@ -4,6 +4,31 @@
     "browser": true,
     "node": true
   },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/webpack.*",
+          "test/**/*"
+        ]
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "ignoreUrls": true
+      }
+    ],
+    "sort-imports": "warn"
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  },
   "overrides": [
     {
       "files": [
@@ -18,18 +43,16 @@
         "@typescript-eslint"
       ],
       "extends": [
-        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
       ],
       "rules": {
-        "max-len": [
-          "warn",
-          {
-            "ignoreUrls": true
-          }
-        ],
-        "semi": "warn"
+        // This rule is already covered by the TypeScript compiler.
+        "import/default": "off",
+        // This rule is already covered by the TypeScript compiler.
+        "import/no-unresolved": "off",
+        "react/jsx-filename-extension": "off"
       }
     }
   ]
