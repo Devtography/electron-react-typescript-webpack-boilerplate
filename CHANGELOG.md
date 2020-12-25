@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   the updated version of `eslint-config-airbnb`.
 - NPM package `copy-webpack-plugin` to `devDependencies` as replacement of
   `copy-pkg-json-webpack-plugin`.
+- NPM packages `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser`
+  to `devDependencies` for using ESLint to lint TypeScript.
 
 ### Changed
 - __Project is now being developed based on Node.js `v14 (LTS)`.__
@@ -20,7 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `eslint-plugin-jsx-a11y` - `6.2.3` -> `6.4.1`
   - `eslint-plugin-react` - `7.17.0` -> ``7.21.5`
   - `lodash` - `4.17.15` -> `4.17.20`
-  - `typescript` - `3.7.2` -> `3.9.7`
 - Major version upgrades on package dependencies:
   - `react` & `react-dom` - `16.12.0` -> `17.0.1`
   - `cross-env` - `5.2.1` -> `7.0.3`
@@ -38,18 +39,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `style-loader` - `0.23.1` -> `2.0.0`
   - `ts-loader` - `5.4.5` -> `8.0.12`
   - `ts-node` - `7.0.1` -> `9.1.1`
-  - `tslint` - `5.20.1` -> `6.1.3`
-  - `tslint-microsoft-contrib` - `5.2.1` -> `6.2.0`
+  - `typescript` - `3.7.2` - > `4.1.3`
   - `webpack` - `4.41.2` -> `5.11.0`
   - `webpack-cli` - `3.3.10` -> `4.2.0`
 - Moved `@types` packages from `dependencies` to `devDependencies` as those
   have no need to be included in production builds.
 - Commands of NPM scripts `dev` & `prod` to make them work with Webpack 5.
+- Rewrote `.eslintrc` to lint both JavaScript & TypeScript with ESLint.
+
 ### Removed
 - NPM package `copy-pkg-json-webpack-plugin` as it doesn't work with Webpack 5
   and seems not very well maintained.
 - NPM packages `acorn` & `ajv` from `devDependencies` as they're not being used
   in this boilerplate.
+- NPM packages `tslint` & `tslint-microsoft-contrib` as TSLint is now
+  deprecated.
 
 ## [2.0.2] - 2019-12-02
 `v2.0.2` is a minor hotfix release fixed the documentation error and build 
