@@ -27,7 +27,19 @@
     "sort-imports": "warn"
   },
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "webpack": {
+        "config": "./webpack.config.js"
+      }
+    }
   },
   "overrides": [
     {
