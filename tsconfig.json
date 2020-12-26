@@ -4,12 +4,12 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@public/*": ["public/*"],
-      "@main/*": ["src/main/*"],
-      "@models/*": ["src/models/*"],
-      "@renderer/*": ["src/renderer/*"],
-      "@utils/*": ["src/utils/*"]
+      "_/*": ["src/*"],
+      "_public/*": ["public/*"],
+      "_main/*": ["src/main/*"],
+      "_models/*": ["src/models/*"],
+      "_renderer/*": ["src/renderer/*"],
+      "_utils/*": ["src/utils/*"]
     },
     "module": "commonjs",
     "moduleResolution": "node",
