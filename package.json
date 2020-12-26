@@ -23,7 +23,11 @@
     },
     "win": {
       "target": "nsis",
-      "asar": false
+      "asar": true 
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
     },
     "buildVersion": "1.0.0"
   },

@@ -49,6 +49,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prefix of internal folder paths from `@` to `@` to avoid confusions with
   scoped NPM packages.
 - Indentation for `.ts` files is now set as `2` spaces instead of `4`.
+- `electron-builder` settings:
+  - `win`:
+    - Enabled `asar`. _(turn it off if the executable built doesn't work)_
+    - Disabled one click installer.
+    - Allowed custom installation directory in the installer built.
 
 ### Fixed
 - ESLint errors/warnings on `main.ts` & `renderer.tsx`.
