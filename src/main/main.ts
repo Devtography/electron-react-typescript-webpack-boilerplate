@@ -25,7 +25,7 @@ function createWindow(): void {
       protocol: 'file:',
       slashes: true,
     }),
-  );
+  ).finally(() => { /* no action */ });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
