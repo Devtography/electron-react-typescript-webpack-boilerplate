@@ -46,6 +46,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   have no need to be included in production builds.
 - Commands of NPM scripts `dev` & `prod` to make them work with Webpack 5.
 - Rewrote `.eslintrc` to lint both JavaScript & TypeScript with ESLint.
+- Prefix of internal folder paths from `@` to `@` to avoid confusions with
+  scoped NPM packages.
+- Indentation for `.ts` files is now set as `2` spaces instead of `4`.
+
+### Fixed
+- ESLint errors/warnings on `main.ts` & `renderer.tsx`.
 
 ### Removed
 - NPM package `copy-pkg-json-webpack-plugin` as it doesn't work with Webpack 5
