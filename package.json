@@ -19,7 +19,7 @@
       "output": "./out/"
     },
     "mac": {
-      "target": "pkg"
+      "target": "dmg"
     },
     "win": {
       "target": "nsis",

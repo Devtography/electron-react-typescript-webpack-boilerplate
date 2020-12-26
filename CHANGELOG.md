@@ -54,9 +54,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Enabled `asar`. _(turn it off if the executable built doesn't work)_
     - Disabled one click installer.
     - Allowed custom installation directory in the installer built.
+  - `mac`:
+    - Changed build target back to `dmg`.
 
 ### Fixed
 - ESLint errors/warnings on `main.ts` & `renderer.tsx`.
+- `electron-builder` fails to build `dmg` on `macOS` (issue 
+  [electron-builder #3990])by upgrading the package version to `> 21.2.0`.
 
 ### Removed
 - NPM package `copy-pkg-json-webpack-plugin` as it doesn't work with Webpack 5
@@ -152,3 +156,4 @@ issue.
 [2.0.2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.1...v2.0.2
 
 [Issue #2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/2
+[electron-builder #3990]: https://github.com/electron-userland/electron-builder/issues/3990
