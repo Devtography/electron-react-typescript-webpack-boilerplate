@@ -27,7 +27,19 @@
     "sort-imports": "warn"
   },
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "webpack": {
+        "config": "./webpack.config.js"
+      }
+    }
   },
   "overrides": [
     {
@@ -52,6 +64,8 @@
         "import/default": "off",
         // This rule is already covered by the TypeScript compiler.
         "import/no-unresolved": "off",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": "warn",
         "react/jsx-filename-extension": "off"
       }
     }
