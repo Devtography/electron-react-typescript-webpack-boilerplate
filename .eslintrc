@@ -64,6 +64,8 @@
         "import/default": "off",
         // This rule is already covered by the TypeScript compiler.
         "import/no-unresolved": "off",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": "warn",
         "react/jsx-filename-extension": "off"
       }
     }
