@@ -5,7 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
+
+## [3.0.0] - 2020-12-26
+### Added
 - NPM packages `react-router` & `react-router-dom` to package dependencies.
 - NPM package `eslint-plugin-react-hooks` to `devDependencies` as required by
   the updated version of `eslint-config-airbnb`.
@@ -34,19 +36,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `html-webpack-plugin` - `3.2.0` -> `4.5.0`
   - `mocha` - `5.2.0` -> `8.2.1`
   - `rimraf` - `2.7.1` -> `3.0.2`
-  - `source-map-loader` - `0.2.4` -> `1.1.3`
+  - `source-map-loader` - `0.2.4` -> `2.0.0`
   - `spectron` - `5.0.0` -> `13.0.0`
   - `style-loader` - `0.23.1` -> `2.0.0`
   - `ts-loader` - `5.4.5` -> `8.0.12`
   - `ts-node` - `7.0.1` -> `9.1.1`
   - `typescript` - `3.7.2` - > `4.1.3`
   - `webpack` - `4.41.2` -> `5.11.0`
-  - `webpack-cli` - `3.3.10` -> `4.2.0`
+  - `webpack-cli` - `3.3.10` -> `4.3.0`
 - Moved `@types` packages from `dependencies` to `devDependencies` as those
   have no need to be included in production builds.
 - Commands of NPM scripts `dev` & `prod` to make them work with Webpack 5.
-- Rewrote `.eslintrc` to lint both JavaScript & TypeScript with ESLint.
-- Prefix of internal folder paths from `@` to `@` to avoid confusions with
+- Migrated to ESLint from TSLint.
+- Updated prefix of internal paths from `@` to `_` to avoid confusions with
   scoped NPM packages.
 - Indentation for `.ts` files is now set as `2` spaces instead of `4`.
 - `electron-builder` settings:
@@ -56,6 +58,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Allowed custom installation directory in the installer built.
   - `mac`:
     - Changed build target back to `dmg`.
+  - `buildVersion` is now being used as build number instead of just another
+    parameter for semantic version number.
+- Updated section `Known issues` in `README`.
 
 ### Fixed
 - ESLint errors/warnings on `main.ts` & `renderer.tsx`.
@@ -151,9 +156,10 @@ issue.
     isn't based on this boilerplate.
 - Separated Webpack config files for `development` & `production` mode.
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v3.0.0...HEAD
 [2.0.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.0...v2.0.1
 [2.0.2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.1...v2.0.2
+[3.0.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.2...v3.0.0
 
 [Issue #2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/2
 [electron-builder #3990]: https://github.com/electron-userland/electron-builder/issues/3990
