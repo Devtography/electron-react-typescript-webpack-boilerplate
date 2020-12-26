@@ -1,9 +1,9 @@
 # Electron-React-TypeScript-Webpack-Boilerplate
 Pre-configured Electron.js + React.js + TypeScript boilerplate with 
-Webpack v4 & linters config predefined.
+Webpack v5 & linters config predefined.
 
 This boilerplate currently works on macOS and Windows. If something doesn't 
-work, please [file and issue](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/new).
+work, please [file an issue](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/new).
 
 ## Getting started
 ```sh
@@ -20,7 +20,7 @@ git clone https://github.com/iamWing/electron-react-typescript-base-proj.git
   "build": {
     "appId": your-app-id,
     "productName": your-product-name,
-    "buildVersion": whatever-you-like
+    "buildVersion": your-build-number
   },
   "author": who's-the-author?,
   "license": if-you-don't-want-to-use-MIT,
@@ -34,7 +34,7 @@ git clone https://github.com/iamWing/electron-react-typescript-base-proj.git
 Then install all the `node_modules` needed by executing the following command:
 ```sh
 cd folder-containing-the-cloned-boilerplate
-npm install
+npm install --also-dev
 ```
 
 Finally execute the following command to start Webpack in development mode and 
@@ -55,17 +55,19 @@ your app for macOS & Windows using `electron-builder`.
 
 For macOS, execute:
 ```sh
+npm run prod
 npm run build:mac
 ```
 
 For Windows, execute:
 ```sh
+npm run prod
 npm run build:win
 ```
-_** `asar` archiving is disabled by default in Windows build as it can cause 
-errors while running the installed Electron app based on pervious experiences, 
-whereas the macOS build with `asar` enabled works just fine. You can turn it 
-back on by removing line 23 (`"asar": false`) in `package.json`. **_
+_**`asar` archiving may cause errors while running the installed Electron app 
+based on pervious experiences, whereas the macOS build with `asar` enabled 
+works just fine. You can turn it off by changing `asar` to `false` in
+`package.json` line 26.**_
 
 ### Extra options
 The build scripts are pre-configured to build 64 bit installers since 64 bit 
@@ -93,17 +95,22 @@ build scripts in `package.json`, but those aren't tested yet. For details,
 please refer to [documents of `electron-builder`](https://www.electron.build/cli).
 
 ## Known issues
+1. As Apple introduced the [notarization requirements] with the public release
+   of `macOS 10.14.5`, apps built for `macOS` are now needed to be signed with
+   a valid Developer ID certificate and let Apple notarizes it for you. This
+   boilerplate doesn't include the notarization setup as of the `3.0.0` release,
+   but up until now, you should still be able to run your Electron app by
+   allowing your app to be opened in `System Preferences -> Security & Privacy
+   -> General` without notarizing it for still (tested on `macOS 11.1`).
 
-- `dmg` build action on `macOS Catalina (10.15)` fails due to Apple ditches 
-  support for 32-bit apps from `10.15` onwards (Don't worry, you are still 
-  building 64-bit apps, just some dependencies of the builder are still 32-bit).
-  Further details retailed to this issue can be found 
-  [here](https://github.com/electron-userland/electron-builder/issues/3990).  
-  Application installer built on `macOS` is now set to build `pkg` file 
-  instead of `dmg` as a workaround in the current version. The issue can be 
-  fixed by applying a major version upgrade of `electron-builder` to `21.2.0+` 
-  but it hasn't been tested on this boilerplate yet. This issue is planned to 
-  be addressed alongside with major version upgrades on other dependencies.
+   If you want to notarization your app using this boilerplate before those
+   settings are included in the future updates, you can try follow the guides on
+   issue [electron-builder #3870].
+
+2. [`electron-builder@22.10.4`] added Apple Silicon and universal binary
+   supports, but it's still a pre-release instead of a stable one so the one
+   included in this boilerplate is still staying on `22.9.1` which doesn't
+   support building the universal binary yet.
 
 ## Folder structure
 ```
@@ -127,14 +134,22 @@ electron-react-typescript-base-proj/
 | - package-lock.json
 | - package.json
 | - tsconfig.json       //- TypeScript config
-| - tslint.json         //- TSLint config
 | - webpack.config.js   //- Webpack config
 ```
 
 ## Author
-
 [Wing Chau](https://github.com/iamWing) [@Devtography](https://github.com/Devtography)
+
+## Donation
+I do this open source work for free in my free time. If you'd like me to invest
+more time on it, please consider give me some [donations]. Any donation is
+gonna be a great motivation for me.
 
 ## License
 Electron React TypeScript Webpack Boilerplate is open source software 
 [licensed as MIT](LICENSE).
+
+[notarization requirements]: https://developer.apple.com/news/?id=04102019a
+[electron-builder #3870]: https://github.com/electron-userland/electron-builder/issues/3870
+[`electron-builder@22.10.4`]: https://github.com/electron-userland/electron-builder/releases/tag/v22.10.4
+[donations]: https://github.com/sponsors/iamWing
