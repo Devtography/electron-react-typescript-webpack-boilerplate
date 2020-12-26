@@ -1,5 +1,5 @@
 const lodash = require('lodash');
-const CopyPkgJsonPlugin = require('copy-pkg-json-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -18,12 +18,12 @@ const commonConfig = {
   node: { __dirname: false, __filename: false },
   resolve: {
     alias: {
-      '@': srcPaths('src'),
-      '@main': srcPaths('src/main'),
-      '@models': srcPaths('src/models'),
-      '@public': srcPaths('public'),
-      '@renderer': srcPaths('src/renderer'),
-      '@utils': srcPaths('src/utils'),
+      _: srcPaths('src'),
+      _main: srcPaths('src/main'),
+      _models: srcPaths('src/models'),
+      _public: srcPaths('public'),
+      _renderer: srcPaths('src/renderer'),
+      _utils: srcPaths('src/utils'),
     },
     extensions: ['.js', '.json', '.ts', '.tsx'],
   },
@@ -55,13 +55,26 @@ mainConfig.entry = './src/main/main.ts';
 mainConfig.target = 'electron-main';
 mainConfig.output.filename = 'main.bundle.js';
 mainConfig.plugins = [
-  new CopyPkgJsonPlugin({
-    remove: ['scripts', 'devDependencies', 'build'],
-    replace: {
-      main: './main.bundle.js',
-      scripts: { start: 'electron ./main.bundle.js' },
-      postinstall: 'electron-builder install-app-deps',
-    },
+  new CopyPlugin({
+    patterns: [
+      {
+        from: 'package.json',
+        to: 'package.json',
+        transform: (content, _path) => { // eslint-disable-line no-unused-vars
+          const jsonContent = JSON.parse(content);
+
+          delete jsonContent.devDependencies;
+          delete jsonContent.scripts;
+          delete jsonContent.build;
+
+          jsonContent.main = './main.bundle.js';
+          jsonContent.scripts = { start: 'electron ./main.bundle.js' };
+          jsonContent.postinstall = 'electron-builder install-app-deps';
+
+          return JSON.stringify(jsonContent, undefined, 2);
+        },
+      },
+    ],
   }),
 ];
 

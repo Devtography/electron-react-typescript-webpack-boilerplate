@@ -6,6 +6,75 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2020-12-26
+### Added
+- NPM packages `react-router` & `react-router-dom` to package dependencies.
+- NPM package `eslint-plugin-react-hooks` to `devDependencies` as required by
+  the updated version of `eslint-config-airbnb`.
+- NPM package `copy-webpack-plugin` to `devDependencies` as replacement of
+  `copy-pkg-json-webpack-plugin`.
+- NPM packages `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser`
+  to `devDependencies` for using ESLint to lint TypeScript.
+
+### Changed
+- __Project is now being developed based on Node.js `v14 (LTS)`.__
+- Minor version upgrades on package dependencies:
+  - `eslint-import-resolver-webpack` - `0.11.1` -> `0.13.0`
+  - `eslint-plugin-import` - `2.18.2` -> `2.22.1`
+  - `eslint-plugin-jsx-a11y` - `6.2.3` -> `6.4.1`
+  - `eslint-plugin-react` - `7.17.0` -> ``7.21.5`
+  - `lodash` - `4.17.15` -> `4.17.20`
+- Major version upgrades on package dependencies:
+  - `react` & `react-dom` - `16.12.0` -> `17.0.1`
+  - `cross-env` - `5.2.1` -> `7.0.3`
+  - `css-loader` - `1.0.1` -> `5.0.1`
+  - `electron` - `3.1.13` -> `11.1.1`
+  - `electron-builder` - `20.44.4` -> `22.9.1`
+  - `eslint` - `5.16.0` -> `7.16.0`
+  - `eslint-config-airbnb` - `17.1.1` -> `18.2.1`
+  - `file-loader` - `2.0.0` -> `6.2.0`
+  - `html-webpack-plugin` - `3.2.0` -> `4.5.0`
+  - `mocha` - `5.2.0` -> `8.2.1`
+  - `rimraf` - `2.7.1` -> `3.0.2`
+  - `source-map-loader` - `0.2.4` -> `2.0.0`
+  - `spectron` - `5.0.0` -> `13.0.0`
+  - `style-loader` - `0.23.1` -> `2.0.0`
+  - `ts-loader` - `5.4.5` -> `8.0.12`
+  - `ts-node` - `7.0.1` -> `9.1.1`
+  - `typescript` - `3.7.2` - > `4.1.3`
+  - `webpack` - `4.41.2` -> `5.11.0`
+  - `webpack-cli` - `3.3.10` -> `4.3.0`
+- Moved `@types` packages from `dependencies` to `devDependencies` as those
+  have no need to be included in production builds.
+- Commands of NPM scripts `dev` & `prod` to make them work with Webpack 5.
+- Migrated to ESLint from TSLint.
+- Updated prefix of internal paths from `@` to `_` to avoid confusions with
+  scoped NPM packages.
+- Indentation for `.ts` files is now set as `2` spaces instead of `4`.
+- `electron-builder` settings:
+  - `win`:
+    - Enabled `asar`. _(turn it off if the executable built doesn't work)_
+    - Disabled one click installer.
+    - Allowed custom installation directory in the installer built.
+  - `mac`:
+    - Changed build target back to `dmg`.
+  - `buildVersion` is now being used as build number instead of just another
+    parameter for semantic version number.
+- Updated section `Known issues` in `README`.
+
+### Fixed
+- ESLint errors/warnings on `main.ts` & `renderer.tsx`.
+- `electron-builder` fails to build `dmg` on `macOS` (issue 
+  [electron-builder #3990])by upgrading the package version to `> 21.2.0`.
+
+### Removed
+- NPM package `copy-pkg-json-webpack-plugin` as it doesn't work with Webpack 5
+  and seems not very well maintained.
+- NPM packages `acorn` & `ajv` from `devDependencies` as they're not being used
+  in this boilerplate.
+- NPM packages `tslint` & `tslint-microsoft-contrib` as TSLint is now
+  deprecated.
+
 ## [2.0.2] - 2019-12-02
 `v2.0.2` is a minor hotfix release fixed the documentation error and build 
 error on `macOS Catalina(10.15+)`.
@@ -87,8 +156,10 @@ issue.
     isn't based on this boilerplate.
 - Separated Webpack config files for `development` & `production` mode.
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v3.0.0...HEAD
 [2.0.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.0...v2.0.1
 [2.0.2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.1...v2.0.2
+[3.0.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v2.0.2...v3.0.0
 
 [Issue #2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/2
+[electron-builder #3990]: https://github.com/electron-userland/electron-builder/issues/3990

@@ -1,36 +1,73 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "node": true
   },
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "airbnb/hooks"
+  ],
   "rules": {
-    "no-unused-vars": "warn",
-    "max-len": [
-      "error",
-      {
-        "ignoreUrls": true
-      }
-    ],
     "import/no-extraneous-dependencies": [
       "error",
       {
         "devDependencies": [
-          "webpack.*.js",
-          "test/**/*.js"
+          "**/webpack.*",
+          "test/**/*"
         ]
       }
     ],
-    "sort-imports": 2,
-    "import/prefer-default-export": 0,
-    "import/no-default-export": 2,
-    "import/no-named-default": 0,
-    "react/jsx-no-bind": false
+    "max-len": [
+      "warn",
+      {
+        "ignoreUrls": true
+      }
+    ],
+    "sort-imports": "warn"
   },
-  "plugins": [
-    "import"
-  ],
   "settings": {
-    "import/resolver": "webpack"
-  }
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "webpack": {
+        "config": "./webpack.config.js"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "rules": {
+        // This rule is already covered by the TypeScript compiler.
+        "import/default": "off",
+        // This rule is already covered by the TypeScript compiler.
+        "import/no-unresolved": "off",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": "warn",
+        "react/jsx-filename-extension": "off"
+      }
+    }
+  ]
 }
