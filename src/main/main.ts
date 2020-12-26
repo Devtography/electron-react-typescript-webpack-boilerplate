@@ -3,6 +3,7 @@
  */
 import * as path from 'path';
 import * as url from 'url';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserWindow, app } from 'electron';
 
 let mainWindow: Electron.BrowserWindow | null;
