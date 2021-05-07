@@ -61,7 +61,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mocha": "^8.2.1",
     "rimraf": "^3.0.2",
     "source-map-loader": "^2.0.0",
