@@ -50,7 +50,7 @@
     "copy-webpack-plugin": "^7.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
-    "electron": "^11.1.1",
+    "electron": "^15.5.5",
     "electron-builder": "^22.9.1",
     "eslint": "^7.16.0",
     "eslint-config-airbnb": "^18.2.1",
