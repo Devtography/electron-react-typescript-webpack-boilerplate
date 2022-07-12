@@ -4,70 +4,47 @@
     "browser": true,
     "node": true
   },
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import"
+  ],
   "extends": [
     "airbnb",
-    "airbnb/hooks"
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   "rules": {
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/webpack.*",
-          "test/**/*"
-        ]
-      }
-    ],
     "max-len": [
       "warn",
       {
-        "ignoreUrls": true
+        "code": 80,
+        "tabWidth": 2,
+        "ignoreComments": true
       }
     ],
-    "sort-imports": "warn"
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
-      },
-      "webpack": {
-        "config": "./webpack.config.js"
+    // Already covered by TypeScript compiler
+    "import/default": "off",
+    // Already covered by TypeScript compiler
+    "import/no-unresolved": "off",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {"order": "asc"}
       }
-    }
-  },
-  "overrides": [
-    {
-      "files": [
-        "**/*.ts",
-        "**/*.tsx"
-      ],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      },
-      "plugins": [
-        "@typescript-eslint"
-      ],
-      "extends": [
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
-      ],
-      "rules": {
-        // This rule is already covered by the TypeScript compiler.
-        "import/default": "off",
-        // This rule is already covered by the TypeScript compiler.
-        "import/no-unresolved": "off",
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": "warn",
-        "react/jsx-filename-extension": "off"
-      }
-    }
-  ]
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn", { "argsIgnorePattern": "^_" }
+    ],
+    "@typescript-eslint/lines-between-class-members": "off"
+  }
 }
