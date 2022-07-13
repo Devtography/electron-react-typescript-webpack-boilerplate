@@ -3,10 +3,11 @@
  */
 import * as path from 'path';
 import * as url from 'url';
+import * as nodeEnv from '_utils/node-env';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserWindow, app } from 'electron';
 
-let mainWindow: Electron.BrowserWindow | null;
+let mainWindow: Electron.BrowserWindow | null = null;
 
 function createWindow(): void {
   // Create the browser window.
@@ -15,7 +16,7 @@ function createWindow(): void {
     width: 800,
     webPreferences: {
       webSecurity: false,
-      devTools: process.env.NODE_ENV !== 'production',
+      devTools: nodeEnv.dev,
     },
   });
 
@@ -61,3 +62,7 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app"s specific main process
 // code. You can also put them in separate files and require them here.
+
+// eslint-disable-next-line import/prefer-default-export
+export const exportedForTests = nodeEnv.test
+  ? { mainWindow, createWindow } : undefined;
