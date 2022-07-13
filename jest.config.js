@@ -5,7 +5,7 @@ const { compilerOptions } = require('./tsconfig.json')
 module.exports = config = {
   testEnvironment: 'node',
   globals: {
-    'ts-test': {
+    'ts-jest': {
       tsconfig: 'tsconfig.json'
     }
   },
