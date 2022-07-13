@@ -7,7 +7,8 @@
     "start": "electron ./dist/main.bundle.js",
     "dev": "rimraf dist && cross-env NODE_ENV=development webpack --watch --progress --color",
     "prod": "rimraf dist && cross-env NODE_ENV=production webpack --progress --color",
-    "test": "mocha -r ts-node/register -r tsconfig-paths/register \"test/**/*.ts\"",
+    "test": "cross-env NODE_ENV=test jest",
+    "watch-test": "npm run test -- --watchAll",
     "build:win": "electron-builder build --win --x64",
     "build:mac": "electron-builder build --mac --x64"
   },
@@ -40,7 +41,7 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "@types/mocha": "^9.1.1",
+    "@types/jest": "^28.1.4",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-router": "^5.1.18",
@@ -62,15 +63,14 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.2",
     "lodash": "^4.17.21",
-    "mocha": "^10.0.0",
     "rimraf": "^3.0.2",
     "source-map-loader": "^4.0.0",
-    "spectron": "^19.0.0",
     "style-loader": "^3.3.1",
+    "ts-jest": "^28.0.5",
     "ts-loader": "^9.3.1",
-    "ts-node": "^10.8.2",
-    "tsconfig-paths": "^3.14.1",
+    "tsconfig-paths": "^4.0.0",
     "typescript": "^4.7.4",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0"
