@@ -14,11 +14,16 @@ module.exports = config = {
     compilerOptions.paths,
     { prefix: '<rootDir>/' }
   ),
+  modulePathIgnorePatterns: [
+    '<rootDir>/dist',
+    '<rootDir>/node_modules',
+    '<rootDir>/out',
+  ],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest'
   },
   testMatch: [
-    '**/tests/**/*.test.(ts?(x)|js?(x))'
+    '**/tests/**/*.(spec|test).(ts?(x)|js?(x))',
   ],
   verbose: true,
 };
