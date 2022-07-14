@@ -1,6 +1,7 @@
 const lodash = require('lodash');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 
 function srcPaths(src) {
@@ -17,15 +18,11 @@ const commonConfig = {
   output: { path: srcPaths('dist') },
   node: { __dirname: false, __filename: false },
   resolve: {
-    alias: {
-      _: srcPaths('src'),
-      _main: srcPaths('src/main'),
-      _models: srcPaths('src/models'),
-      _public: srcPaths('public'),
-      _renderer: srcPaths('src/renderer'),
-      _utils: srcPaths('src/utils'),
-    },
     extensions: ['.js', '.json', '.ts', '.tsx'],
+    plugins: [new TsconfigPathsPlugin({
+      configFile: './tsconfig.json',
+      extensions: ['.js', '.json', '.ts', '.tsx'],
+    })],
   },
   module: {
     rules: [
