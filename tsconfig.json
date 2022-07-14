@@ -8,6 +8,7 @@
       "_public/*": ["public/*"],
       "_main/*": ["src/main/*"],
       "_models/*": ["src/models/*"],
+      "_preload/*": ["src/preload/*"],
       "_renderer/*": ["src/renderer/*"],
       "_utils/*": ["src/utils/*"],
       "_tests/*": ["tests/*"]
