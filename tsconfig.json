@@ -15,8 +15,8 @@
       "_tests/*": ["tests/*"]
     },
     "typeRoots": [
-      "./node_modules/@types/**/*",
-      "./src/types/**/*"
+      "./node_modules/@types",
+      "./src/types"
     ],
     "module": "commonjs",
     "moduleResolution": "node",
@@ -26,5 +26,5 @@
     "sourceMap": true,
     "target": "esnext"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "tests/**/*"]
 }
