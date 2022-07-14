@@ -25,5 +25,6 @@ module.exports = config = {
   testMatch: [
     '**/tests/**/*.(spec|test).(ts?(x)|js?(x))',
   ],
+  collectCoverage: true,
   verbose: true,
 };
