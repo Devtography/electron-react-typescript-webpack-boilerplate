@@ -10,9 +10,14 @@
       "_models/*": ["src/models/*"],
       "_preload/*": ["src/preload/*"],
       "_renderer/*": ["src/renderer/*"],
+      "_types/*": ["src/types/*"],
       "_utils/*": ["src/utils/*"],
       "_tests/*": ["tests/*"]
     },
+    "typeRoots": [
+      "./node_modules/@types/**/*",
+      "./src/types/**/*"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
