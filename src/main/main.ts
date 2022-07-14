@@ -5,7 +5,7 @@ import * as path from 'path';
 import * as url from 'url';
 import * as nodeEnv from '_utils/node-env';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { BrowserWindow, app } from 'electron';
+import { BrowserWindow, app, ipcMain } from 'electron';
 
 let mainWindow: Electron.BrowserWindow | undefined;
 
@@ -15,8 +15,9 @@ function createWindow(): void {
     height: 600,
     width: 800,
     webPreferences: {
-      webSecurity: false,
       devTools: nodeEnv.dev,
+      preload: path.join(__dirname, './preload.bundle.js'),
+      webSecurity: false,
     },
   });
 
@@ -58,6 +59,11 @@ app.on('activate', () => {
   if (mainWindow === undefined) {
     createWindow();
   }
+});
+
+ipcMain.on('renderer-ready', () => {
+  // eslint-disable-next-line no-console
+  console.log('Renderer is ready.');
 });
 
 // In this file you can include the rest of your app"s specific main process
