@@ -7,7 +7,7 @@ import * as nodeEnv from '_utils/node-env';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserWindow, app } from 'electron';
 
-let mainWindow: Electron.BrowserWindow | null = null;
+let mainWindow: Electron.BrowserWindow | undefined;
 
 function createWindow(): void {
   // Create the browser window.
@@ -34,7 +34,7 @@ function createWindow(): void {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    mainWindow = null;
+    mainWindow = undefined;
   });
 }
 
@@ -55,7 +55,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // On OS X it"s common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
+  if (mainWindow === undefined) {
     createWindow();
   }
 });
