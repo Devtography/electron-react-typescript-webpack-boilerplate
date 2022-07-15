@@ -8,10 +8,16 @@
       "_public/*": ["public/*"],
       "_main/*": ["src/main/*"],
       "_models/*": ["src/models/*"],
+      "_preload/*": ["src/preload/*"],
       "_renderer/*": ["src/renderer/*"],
+      "_types/*": ["src/types/*"],
       "_utils/*": ["src/utils/*"],
       "_tests/*": ["tests/*"]
     },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -20,5 +26,5 @@
     "sourceMap": true,
     "target": "esnext"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "tests/**/*"]
 }

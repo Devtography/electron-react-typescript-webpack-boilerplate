@@ -5,9 +5,9 @@ import * as path from 'path';
 import * as url from 'url';
 import * as nodeEnv from '_utils/node-env';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { BrowserWindow, app } from 'electron';
+import { BrowserWindow, app, ipcMain } from 'electron';
 
-let mainWindow: Electron.BrowserWindow | null = null;
+let mainWindow: Electron.BrowserWindow | undefined;
 
 function createWindow(): void {
   // Create the browser window.
@@ -15,8 +15,9 @@ function createWindow(): void {
     height: 600,
     width: 800,
     webPreferences: {
-      webSecurity: false,
       devTools: nodeEnv.dev,
+      preload: path.join(__dirname, './preload.bundle.js'),
+      webSecurity: false,
     },
   });
 
@@ -34,7 +35,7 @@ function createWindow(): void {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    mainWindow = null;
+    mainWindow = undefined;
   });
 }
 
@@ -55,9 +56,14 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // On OS X it"s common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
+  if (mainWindow === undefined) {
     createWindow();
   }
+});
+
+ipcMain.on('renderer-ready', () => {
+  // eslint-disable-next-line no-console
+  console.log('Renderer is ready.');
 });
 
 // In this file you can include the rest of your app"s specific main process
