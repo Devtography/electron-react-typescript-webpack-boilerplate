@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 
 function App(): JSX.Element {
-  React.useEffect(() => {
+  useEffect(() => {
     window.ipcAPI?.rendererReady();
   }, []);
 
