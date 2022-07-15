@@ -2,7 +2,7 @@ import * as React from 'react';
 
 function App(): JSX.Element {
   React.useEffect(() => {
-    window.api?.rendererReady();
+    window.ipcAPI?.rendererReady();
   }, []);
 
   return (

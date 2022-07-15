@@ -1,7 +1,5 @@
+import ipcAPI from '_preload/ipc-api';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { ipcRenderer, contextBridge } from 'electron';
+import { contextBridge } from 'electron';
 
-contextBridge.exposeInMainWorld('api', {
-  /** Notify main the renderer is ready. */
-  rendererReady: () => { ipcRenderer.send('renderer-ready'); },
-});
+contextBridge.exposeInMainWorld('ipcAPI', ipcAPI);
