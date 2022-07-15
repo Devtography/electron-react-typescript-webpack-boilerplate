@@ -57,8 +57,9 @@ mainConfig.plugins = [
       {
         from: 'package.json',
         to: 'package.json',
-        transform: (content, _path) => { // eslint-disable-line no-unused-vars
+        transform: (content, _path) => {
           const jsonContent = JSON.parse(content);
+          const electronVersion = jsonContent.devDependencies.electron;
 
           delete jsonContent.devDependencies;
           delete jsonContent.scripts;
@@ -66,7 +67,7 @@ mainConfig.plugins = [
 
           jsonContent.main = './main.bundle.js';
           jsonContent.scripts = { start: 'electron ./main.bundle.js' };
-          jsonContent.postinstall = 'electron-builder install-app-deps';
+          jsonContent.devDependencies = { electron: electronVersion }
 
           return JSON.stringify(jsonContent, undefined, 2);
         },
