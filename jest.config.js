@@ -6,13 +6,13 @@ module.exports = config = {
   testEnvironment: 'node',
   globals: {
     'ts-jest': {
-      tsconfig: 'tsconfig.json'
-    }
+      tsconfig: 'tsconfig.json',
+    },
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   moduleNameMapper: pathsToModuleNameMapper(
     compilerOptions.paths,
-    { prefix: '<rootDir>/' }
+    { prefix: '<rootDir>/' },
   ),
   modulePathIgnorePatterns: [
     '<rootDir>/dist',
@@ -20,7 +20,7 @@ module.exports = config = {
     '<rootDir>/out',
   ],
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest'
+    '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   testMatch: [
     '**/tests/**/*.(spec|test).(ts?(x)|js?(x))',
