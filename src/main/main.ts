@@ -36,7 +36,7 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow();
+  if (nodeEnv.dev || nodeEnv.prod) createWindow();
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows.length === 0) createWindow();
@@ -59,5 +59,4 @@ ipcMain.on('renderer-ready', () => {
 // code. You can also put them in separate files and require them here.
 
 // eslint-disable-next-line import/prefer-default-export
-export const exportedForTests = nodeEnv.test
-  ? { mainWindow, createWindow } : undefined;
+export const exportedForTests = nodeEnv.test ? { createWindow } : undefined;
