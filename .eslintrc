@@ -51,5 +51,22 @@
       "warn", { "argsIgnorePattern": "^_" }
     ],
     "@typescript-eslint/lines-between-class-members": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.spec.ts",
+        "*.spec.tsx",
+        "*.spec.js",
+        "*.spec.jsx",
+        "*.test.ts",
+        "*.test.tsx",
+        "*.test.js",
+        "*.test.jsx"
+      ],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
+    }
+  ]
 }
