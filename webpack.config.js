@@ -62,6 +62,7 @@ mainConfig.plugins = [
           const electronVersion = jsonContent.devDependencies.electron;
 
           delete jsonContent.devDependencies;
+          delete jsonContent.optionalDependencies;
           delete jsonContent.scripts;
           delete jsonContent.build;
 
