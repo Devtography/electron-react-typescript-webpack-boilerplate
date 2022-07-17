@@ -90,13 +90,6 @@
     "type": "git",
     "url": "git+https://github.com/Devtography/electron-react-typescript-webpack-boilerplate"
   },
-  "keywords": [
-    "boilerplate",
-    "Electron",
-    "React",
-    "Typescript",
-    "Webpack"
-  ],
   "bugs": {
     "url": "https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues"
   },

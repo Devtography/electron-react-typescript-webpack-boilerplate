@@ -1,53 +1,46 @@
 # Electron-React-TypeScript-Webpack-Boilerplate
 Pre-configured Electron.js + React.js + TypeScript boilerplate with 
-Webpack v5 & linters config predefined.
+Webpack, Jest & ESLint config predefined.
 
-This boilerplate currently works on macOS and Windows. If something doesn't 
-work, please [file an issue](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/new).
+This boilerplate has been tested on latest macOS and Windows. If anything 
+doesn't work, please [file an issue](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/new).
 
 ## Getting started
-```sh
-// execute
-git clone https://github.com/iamWing/electron-react-typescript-base-proj.git
-```
+1. Clone this repository, or if you're hosting your Electron project on GitHub,
+click [`Use this template`] to create a new project.
 
-```json
-// edit the following fields in package.json for your own project
-{
-  "name": your-project-name,
-  "version": whatever-you-like,
-  "description": your-own-description,
-  "build": {
-    "appId": your-app-id,
-    "productName": your-product-name,
-    "buildVersion": your-build-number
-  },
-  "author": who's-the-author?,
-  "license": if-you-don't-want-to-use-MIT,
-  "repository": type-and-link-of-your-repo,
-  "keywords": keywords-of-your-project,
-  "bugs": issue-page-of-your-repo,
-  "homepage": homepage-of-your-repo
-}
-```
+2. Edit the following fields in `package.json` for your own project:
 
-Then install all the `node_modules` needed by executing the following command:
-```sh
-cd folder-containing-the-cloned-boilerplate
-npm install --also-dev
-```
+    ```json
+    {
+      "name": your-project-name,
+      "version": whatever-you-like,
+      "description": your-own-description,
+      "build": {
+        "appId": your-app-id,
+        "productName": your-product-name,
+        "buildVersion": your-build-number
+      },
+      "author": who's-the-author?,
+      "license": if-you-don't-want-to-use-MIT,
+      "repository": type-and-link-of-your-repo,
+      "bugs": issue-page-of-your-repo,
+      "homepage": homepage-of-your-repo
+    }
+    ```
 
-Finally execute the following command to start Webpack in development mode and 
-watch the changes on source files for live rebuild on code changes.
-```sh
-npm run dev
-```
+3. `npm install` to install the dependencies.
 
-The `npm run dev` command won't start your app and get your app shows on the 
-screen. To start your app, execute the following command:
-```sh
-npm start
-```
+   *Please note that `optionalDependencies` should only be omitted on your
+   CI/CD pipeline for unit testing. It's meant to save some bandwidth. You'll
+   need all the packages listed for development.*
+
+Done! Now run `npm run dev` to start the Webpack in development and watch mode.
+It's time to start working on your project.
+
+Be aware that starting Webpack will only compile your files to `dist` folder
+but won't start the Electron app. Use `npm start` command to start your
+Electron app once the files are compiled.
 
 ## Building the installer for your Electron app
 The boilerplate is currently configured to package & build the installer of 
@@ -149,6 +142,7 @@ gonna be a great motivation for me.
 Electron React TypeScript Webpack Boilerplate is open source software 
 [licensed as MIT](LICENSE).
 
+[`Use this template`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/generate
 [notarization requirements]: https://developer.apple.com/news/?id=04102019a
 [electron-builder #3870]: https://github.com/electron-userland/electron-builder/issues/3870
 [`electron-builder@22.10.4`]: https://github.com/electron-userland/electron-builder/releases/tag/v22.10.4
