@@ -13,8 +13,8 @@
     "next-patch": "npm --no-git-tag-version version prepatch",
     "next-minor": "npm --no-git-tag-version version preminor",
     "next-major": "npm --no-git-tag-version version premajor",
-    "build:win": "npx electron-builder build --win",
-    "build:mac": "npx electron-builder build --mac"
+    "build:win": "electron-builder build --win",
+    "build:mac": "electron-builder build --mac"
   },
   "build": {
     "appId": "com.devtography.electron_boilerplate",
