@@ -42,50 +42,21 @@ Be aware that starting Webpack will only compile your files to `dist` folder
 but won't start the Electron app. Use `npm start` command to start your
 Electron app once the files are compiled.
 
-## Building the installer for your Electron app
-The boilerplate is currently configured to package & build the installer of 
-your app for macOS & Windows using `electron-builder`. 
+## Build your Electron app package
+Different from the official [Electron quick start guide], this boilerplate uses
+[`electron-builder`] instead of [Electron Forge] to package your Electron app.
 
-For macOS, execute:
-```sh
-npm run prod
-npm run build:mac
-```
+By default, the build configuration in `package.json` is configured to build the
+mac universal package (for Apple Silicon & Intel based machines) and Windows
+`exe` installer (both 32 & 64 bit). You should not need to change anything in
+the build script other than supplying the app icon unless you need to sign your
+code/package or build for Linux.
 
-For Windows, execute:
-```sh
-npm run prod
-npm run build:win
-```
-_**`asar` archiving may cause errors while running the installed Electron app 
-based on pervious experiences, whereas the macOS build with `asar` enabled 
-works just fine. You can turn it off by changing `asar` to `false` in
-`package.json` line 26.**_
+For code signing and notarization, or to build for Linux, please read
+[`electron-builder`'s document] for configuring the build script.
 
-### Extra options
-The build scripts are pre-configured to build 64 bit installers since 64 bit 
-should be the standard for a modern applications. 32 bit builds are still 
-possible by changing the build scripts in `package.json` as below:
-```json
-// from
-"scripts": {
-    ...
-    "build:win": "electron-builder build --win --x64",
-    "build:mac": "electron-builder build --mac --x64"
-},
-
-// to
-"scripts": {
-    ...
-    "build:win": "electron-builder build --win --ia32",
-    // Works only on macOS version < 10.15
-    "build:mac": "electron-builder build --mac --ia32"
-},
-```
-
-Builds for Linux, armv71, and arm64 can also be configured by modifying the 
-build scripts in `package.json`, but those aren't tested yet. For details, 
-please refer to [documents of `electron-builder`](https://www.electron.build/cli).
+To package your Electron app, run `npm run prod` to get your code compiled in
+`production` mode, then use `npm run  build:(win|mac)` to build the package.
 
 ## Known issues
 1. As Apple introduced the [notarization requirements] with the public release
@@ -143,6 +114,10 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [licensed as MIT](LICENSE).
 
 [`Use this template`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/generate
+[Electron quick start guide]: https://www.electronjs.org/docs/latest/tutorial/quick-start
+[`electron-builder`]: https://github.com/electron-userland/electron-builder
+[Electron Forge]: https://github.com/electron-userland/electron-forge
+[`electron-builder`'s document]: https://www.electron.build
 [notarization requirements]: https://developer.apple.com/news/?id=04102019a
 [electron-builder #3870]: https://github.com/electron-userland/electron-builder/issues/3870
 [`electron-builder@22.10.4`]: https://github.com/electron-userland/electron-builder/releases/tag/v22.10.4
