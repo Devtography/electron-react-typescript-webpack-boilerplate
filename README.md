@@ -13,19 +13,19 @@ click [`Use this template`] to create a new project.
 
     ```json
     {
-      "name": your-project-name,
-      "version": whatever-you-like,
-      "description": your-own-description,
+      "name": "your-project-name",
+      "version": "whatever-you-like",
+      "description": "your-own-description",
       "build": {
-        "appId": your-app-id,
-        "productName": your-product-name,
-        "buildVersion": your-build-number
+        "appId": "your-app-id",
+        "productName": "your-product-name",
+        "buildVersion": "your-build-number"
       },
-      "author": who's-the-author?,
-      "license": if-you-don't-want-to-use-MIT,
-      "repository": type-and-link-of-your-repo,
-      "bugs": issue-page-of-your-repo,
-      "homepage": homepage-of-your-repo
+      "author": "who's-the-author?",
+      "license": "if-you-don't-want-to-use-MIT",
+      "repository": "type-and-link-of-your-repo",
+      "bugs": "issue-page-of-your-repo",
+      "homepage": "homepage-of-your-repo"
     }
     ```
 
