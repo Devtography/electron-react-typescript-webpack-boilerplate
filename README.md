@@ -59,22 +59,21 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 `production` mode, then use `npm run  build:(win|mac)` to build the package.
 
 ## Known issues
-1. As Apple introduced the [notarization requirements] with the public release
-   of `macOS 10.14.5`, apps built for `macOS` are now needed to be signed with
-   a valid Developer ID certificate and let Apple notarizes it for you. This
-   boilerplate doesn't include the notarization setup as of the `3.0.0` release,
-   but up until now, you should still be able to run your Electron app by
-   allowing your app to be opened in `System Preferences -> Security & Privacy
-   -> General` without notarizing it for still (tested on `macOS 11.1`).
+- [`electron-builder`] packages the file into Electron's `asar` archive format
+  by default. Based on past experiences with old Electron & `electron-builder`
+  versions, this might lead to runtime error on Windows while launching the
+  installed Electron app. 
 
-   If you want to notarization your app using this boilerplate before those
-   settings are included in the future updates, you can try follow the guides on
-   issue [electron-builder #3870].
-
-2. [`electron-builder@22.10.4`] added Apple Silicon and universal binary
-   supports, but it's still a pre-release instead of a stable one so the one
-   included in this boilerplate is still staying on `22.9.1` which doesn't
-   support building the universal binary yet.
+  One way to verify this issue is to build the mac package and see if your app
+  runs fine on mac. If it's the case, you can override the `asar` archive
+  option in the build configuration in `package.json` by adding `asar: false`
+  in `win` section.
+  
+  This solution isn't ideal but since `asar` archiving is
+  meant to improve performance of reading files if bundler like Webpack is not
+  being used. The app packaging workflow defined in this boilerplate already
+  uses Webpack to minify your code in `production` builds, so there shouldn't
+  be any significant performance different with `asar` archiving disabled.
 
 ## Folder structure
 ```
