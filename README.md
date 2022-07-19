@@ -140,7 +140,4 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [Electron quick start guide]: https://www.electronjs.org/docs/latest/tutorial/quick-start
 [Electron Forge]: https://github.com/electron-userland/electron-forge
 [`electron-builder`'s document]: https://www.electron.build
-[notarization requirements]: https://developer.apple.com/news/?id=04102019a
-[electron-builder #3870]: https://github.com/electron-userland/electron-builder/issues/3870
-[`electron-builder@22.10.4`]: https://github.com/electron-userland/electron-builder/releases/tag/v22.10.4
 [donations]: https://github.com/sponsors/iamWing
