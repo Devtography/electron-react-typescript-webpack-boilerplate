@@ -51,6 +51,11 @@ Be aware that starting Webpack will only compile your files to `dist` folder
 but won't start the Electron app. Use `npm start` command to start your
 Electron app once the files are compiled.
 
+__*Starting from `v4.0.0`, you no longer need to manually config your module
+path alias in `webpack.config.js`. All module path alias set in `tsconfig.json`
+will be configured in Webpack automatically thanks to [`tsconfig-paths`] and
+[`tsconfig-paths-webpack-plugin`].*__
+
 ## Build your Electron app package
 Different from the official [Electron quick start guide], this boilerplate uses
 [`electron-builder`] instead of [Electron Forge] to package your Electron app.
@@ -130,6 +135,8 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
 [file an issue]: https://www.electronjs.org
 [`Use this template`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/generate
+[`tsconfig-paths`]: https://github.com/dividab/tsconfig-paths
+[`tsconfig-paths-webpack-plugin`]: https://github.com/dividab/tsconfig-paths-webpack-plugin
 [Electron quick start guide]: https://www.electronjs.org/docs/latest/tutorial/quick-start
 [Electron Forge]: https://github.com/electron-userland/electron-forge
 [`electron-builder`'s document]: https://www.electron.build
