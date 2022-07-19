@@ -1,9 +1,18 @@
 # Electron-React-TypeScript-Webpack-Boilerplate
-Pre-configured Electron.js + React.js + TypeScript boilerplate with 
-Webpack, Jest & ESLint config predefined.
+A boilerplate that let you instantly start working on your next [Electron] app 
+in [TypeScript] with no time wasted messing with the config files.
 
-This boilerplate has been tested on latest macOS and Windows. If anything 
-doesn't work, please [file an issue](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/issues/new).
+- Ready to use [Electron] project template with [React], [Webpack] and
+  [TypeScript] seamlessly integrated.
+- [ESLint] set up with TypeScript, Airbnb's rules, and [Jest] support.
+- [Jest] integrated and configured.
+- [`electron-builder`] for app packaging, with basic build config for Windows 
+  macOS included.
+- Clean, easy to read and alter config files. No config file is hidden behind
+  yet another script!
+
+*This boilerplate is tested on the latest macOS and Windows. If anything 
+doesn't work, please [file an issue].*
 
 ## Getting started
 1. Clone this repository, or if you're hosting your Electron project on GitHub,
@@ -112,9 +121,16 @@ gonna be a great motivation for me.
 Electron React TypeScript Webpack Boilerplate is open source software 
 [licensed as MIT](LICENSE).
 
+[Electron]: https://www.electronjs.org
+[React]: https://reactjs.org
+[Webpack]: https://webpack.js.org
+[TypeScript]: https://www.typescriptlang.org
+[ESLint]: http://eslint.org
+[Jest]: https://jestjs.io
+[`electron-builder`]: https://github.com/electron-userland/electron-builder
+[file an issue]: https://www.electronjs.org
 [`Use this template`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/generate
 [Electron quick start guide]: https://www.electronjs.org/docs/latest/tutorial/quick-start
-[`electron-builder`]: https://github.com/electron-userland/electron-builder
 [Electron Forge]: https://github.com/electron-userland/electron-forge
 [`electron-builder`'s document]: https://www.electron.build
 [notarization requirements]: https://developer.apple.com/news/?id=04102019a
