@@ -207,9 +207,9 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 [Wing Chau](https://github.com/iamWing) [@Devtography](https://github.com/Devtography)
 
 ## Donation
-I do this open source work for free in my free time. If you'd like me to invest
-more time on it, please consider give me some [donations]. Any donation is
-gonna be a great motivation for me.
+Maintaining this project takes time, lots of cups of coffee, and I do it for
+free. Consider buy me coffee via [donations]. 100% of donation will fund my
+coffee buying budget for quality coffee beans from great roasters I know 😉 ☕️️
 
 ## License
 Electron React TypeScript Webpack Boilerplate is open source software 
