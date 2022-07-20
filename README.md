@@ -26,6 +26,10 @@ tools integrated in this boilerplate might not always be implemented at once,
 especially on experimental features. If you want any particular feature to be
 implemented, please [file an issue], or consider make a [new pull request].
 
+### Development plan
+- [ ] Create a `create-react-app`-like package initialiser __!!!__
+- [ ] Integrate another end-to-end testing framework to replace [Spectron]
+
 ## Getting started
 1. Clone this repository, or if you're hosting your Electron project on GitHub,
 click [`Use this template`] to create a new project.
@@ -236,6 +240,7 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
 [file an issue]: https://www.electronjs.org
 [new pull request]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare
+[Spectron]: https://github.com/electron-userland/spectron
 [`Use this template`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/generate
 [`tsconfig-paths`]: https://github.com/dividab/tsconfig-paths
 [`tsconfig-paths-webpack-plugin`]: https://github.com/dividab/tsconfig-paths-webpack-plugin
