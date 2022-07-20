@@ -10,9 +10,21 @@ in [TypeScript] with no time wasted messing with the config files.
   macOS included.
 - Clean, easy to read and alter config files. No config file is hidden behind
   yet another script!
+- Monthly maintenance to keep things up to date!
 
 *This boilerplate is tested on the latest macOS and Windows. If anything 
 doesn't work, please [file an issue].*
+
+### Maintenance schedule
+Starting from `v4.0.0`, the project maintenance will become much more regular.
+A new release will be published on a monthly basis to keep the package
+dependencies, package configurations and APIs / syntax up to date.
+
+Maintenance work will begin on 1st of each month, and expect the new version to
+be released within the first week of the month. New features from different
+tools integrated in this boilerplate might not always be implemented at once,
+especially on experimental features. If you want any particular feature to be
+implemented, please [file an issue], or consider make a [new pull request].
 
 ## Getting started
 1. Clone this repository, or if you're hosting your Electron project on GitHub,
@@ -223,6 +235,7 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [Jest]: https://jestjs.io
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
 [file an issue]: https://www.electronjs.org
+[new pull request]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare
 [`Use this template`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/generate
 [`tsconfig-paths`]: https://github.com/dividab/tsconfig-paths
 [`tsconfig-paths-webpack-plugin`]: https://github.com/dividab/tsconfig-paths-webpack-plugin
