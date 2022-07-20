@@ -30,6 +30,25 @@ implemented, please [file an issue], or consider make a [new pull request].
 - [ ] Create a `create-react-app`-like package initialiser __!!!__
 - [ ] Integrate another end-to-end testing framework to replace [Spectron]
 
+---
+
+## 🚨 🚧 CAUTION 🚧 🚨
+- [Spectron] has officially been deprecated by the [Electron] team on
+  February 1, 2022, thus, its' integration has also been dropped from this
+  boilerplate on `v4+`.
+
+  A replacement will be integrated in future version (pending for `v5`).
+  Currently evaluating different options including [Playwright] and
+  [WebdriverIO].
+
+  *See - [Spectron Deprecation Notice]*
+
+- `mocha` has been dropped and replaced by [Jest] on `v4+`. If you're using
+  `mocha` as your unit testing framework, please reference to `package.json`
+  from [`v3.0.0`].
+
+---
+
 ## Getting started
 1. Clone this repository, or if you're hosting your Electron project on GitHub,
 click [`Use this template`] to create a new project.
@@ -241,6 +260,10 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [file an issue]: https://www.electronjs.org
 [new pull request]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare
 [Spectron]: https://github.com/electron-userland/spectron
+[Playwright]: https://playwright.dev
+[WebdriverIO]: https://webdriver.io
+[Spectron Deprecation Notice]: https://www.electronjs.org/blog/spectron-deprecation-notice
+[`v3.0.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v3.0.0
 [`Use this template`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/generate
 [`tsconfig-paths`]: https://github.com/dividab/tsconfig-paths
 [`tsconfig-paths-webpack-plugin`]: https://github.com/dividab/tsconfig-paths-webpack-plugin
