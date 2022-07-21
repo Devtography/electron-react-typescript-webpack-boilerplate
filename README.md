@@ -216,7 +216,8 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   [Jest] applied.
 
 - `.gitignore` - Git ignore file
-- `CHANGELOG.md` - Change log of this boilerplate
+- `CHANGELOG_PRE_V4.md` - Changelog of this boilerplate prior to `v4.0.0`
+- `CHANGELOG_V4+.md` - Changelog of this boilerplate from `v4.0.0` onwards
 - `jest.config.js` - [Jest] config file
 - `LICENSE` - MIT license
 - `package-lock.json`
