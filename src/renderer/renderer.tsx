@@ -4,13 +4,11 @@
 // Import the styles here to process them with webpack
 import '_public/style.css';
 
+import App from '_renderer/App';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
-ReactDOM.render(
-  <div className="app">
-    <h4>Welcome to React, Electron and Typescript</h4>
-    <p>Hello</p>
-  </div>,
-  document.getElementById('app'),
-);
+const container = document.getElementById('app');
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(container!);
+root.render(<App />);

@@ -1,6 +1,7 @@
 const lodash = require('lodash');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 
 function srcPaths(src) {
@@ -17,15 +18,11 @@ const commonConfig = {
   output: { path: srcPaths('dist') },
   node: { __dirname: false, __filename: false },
   resolve: {
-    alias: {
-      _: srcPaths('src'),
-      _main: srcPaths('src/main'),
-      _models: srcPaths('src/models'),
-      _public: srcPaths('public'),
-      _renderer: srcPaths('src/renderer'),
-      _utils: srcPaths('src/utils'),
-    },
     extensions: ['.js', '.json', '.ts', '.tsx'],
+    plugins: [new TsconfigPathsPlugin({
+      configFile: './tsconfig.json',
+      extensions: ['.js', '.json', '.ts', '.tsx'],
+    })],
   },
   module: {
     rules: [
@@ -60,16 +57,18 @@ mainConfig.plugins = [
       {
         from: 'package.json',
         to: 'package.json',
-        transform: (content, _path) => { // eslint-disable-line no-unused-vars
+        transform: (content, _path) => {
           const jsonContent = JSON.parse(content);
+          const electronVersion = jsonContent.devDependencies.electron;
 
           delete jsonContent.devDependencies;
+          delete jsonContent.optionalDependencies;
           delete jsonContent.scripts;
           delete jsonContent.build;
 
           jsonContent.main = './main.bundle.js';
           jsonContent.scripts = { start: 'electron ./main.bundle.js' };
-          jsonContent.postinstall = 'electron-builder install-app-deps';
+          jsonContent.devDependencies = { electron: electronVersion }
 
           return JSON.stringify(jsonContent, undefined, 2);
         },
@@ -77,6 +76,11 @@ mainConfig.plugins = [
     ],
   }),
 ];
+
+const preloadConfig = lodash.cloneDeep(commonConfig);
+preloadConfig.entry = './src/preload/preload.ts';
+preloadConfig.target = 'electron-preload';
+preloadConfig.output.filename = 'preload.bundle.js';
 
 const rendererConfig = lodash.cloneDeep(commonConfig);
 rendererConfig.entry = './src/renderer/renderer.tsx';
@@ -88,4 +92,4 @@ rendererConfig.plugins = [
   }),
 ];
 
-module.exports = [mainConfig, rendererConfig];
+module.exports = [mainConfig, preloadConfig, rendererConfig];

@@ -2,71 +2,70 @@
   "root": true,
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json",
+      "./tests/tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jest",
+    "import"
+  ],
   "extends": [
     "airbnb",
-    "airbnb/hooks"
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:jest/recommended",
+    "plugin:jest/style"
   ],
   "rules": {
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/webpack.*",
-          "test/**/*"
-        ]
-      }
-    ],
     "max-len": [
       "warn",
       {
-        "ignoreUrls": true
+        "code": 80,
+        "tabWidth": 2,
+        "ignoreComments": true
       }
     ],
-    "sort-imports": "warn"
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
-      },
-      "webpack": {
-        "config": "./webpack.config.js"
+    // Already covered by TypeScript compiler
+    "import/default": "off",
+    // Already covered by TypeScript compiler
+    "import/no-unresolved": "off",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {"order": "asc"}
       }
-    }
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn", { "argsIgnorePattern": "^_" }
+    ],
+    "@typescript-eslint/lines-between-class-members": "off"
   },
   "overrides": [
     {
       "files": [
-        "**/*.ts",
-        "**/*.tsx"
-      ],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      },
-      "plugins": [
-        "@typescript-eslint"
-      ],
-      "extends": [
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "*.spec.ts",
+        "*.spec.tsx",
+        "*.spec.js",
+        "*.spec.jsx",
+        "*.test.ts",
+        "*.test.tsx",
+        "*.test.js",
+        "*.test.jsx"
       ],
       "rules": {
-        // This rule is already covered by the TypeScript compiler.
-        "import/default": "off",
-        // This rule is already covered by the TypeScript compiler.
-        "import/no-unresolved": "off",
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": "warn",
-        "react/jsx-filename-extension": "off"
+        "@typescript-eslint/no-non-null-assertion": "off"
       }
     }
   ]

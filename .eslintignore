@@ -1,0 +1,7 @@
+node_modules
+dist
+coverage
+out
+public
+jest.config.js
+webpack.config.js
