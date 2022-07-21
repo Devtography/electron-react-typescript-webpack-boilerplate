@@ -29,6 +29,7 @@ implemented, please [file an issue], or consider make a [new pull request].
 ### Development plan
 - [ ] Create a `create-react-app`-like package initialiser __!!!__
 - [ ] Integrate another end-to-end testing framework to replace [Spectron]
+- [ ] Migrate to Webpack 5 `Asset Modules`
 
 ---
 
