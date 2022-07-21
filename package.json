@@ -10,9 +10,9 @@
     "test": "cross-env NODE_ENV=test jest",
     "watch-test": "npm run test -- --watchAll",
     "next-rc": "npm --no-git-tag-version version prerelease --preid=rc",
-    "next-patch": "npm --no-git-tag-version version prepatch",
-    "next-minor": "npm --no-git-tag-version version preminor",
-    "next-major": "npm --no-git-tag-version version premajor",
+    "next-patch": "npm --no-git-tag-version version patch",
+    "next-minor": "npm --no-git-tag-version version minor",
+    "next-major": "npm --no-git-tag-version version major",
     "build:win": "electron-builder build --win",
     "build:mac": "electron-builder build --mac"
   },
