@@ -2,9 +2,9 @@
  * Entry point of the Election app.
  */
 import * as path from 'path';
-import * as nodeEnv from '_utils/node-env';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserWindow, app, ipcMain } from 'electron';
+import * as nodeEnv from '_utils/node-env';
 
 let mainWindow: Electron.BrowserWindow | undefined;
 
