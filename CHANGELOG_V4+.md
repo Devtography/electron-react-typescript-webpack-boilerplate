@@ -5,6 +5,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- `tsconfig.eslint.json` to avoid ESLint complains for file not being included
+  in project provided.
+
+### Changed
+- Migrated from deprecated `.eslintrc` (ESLint config with no file extension) to
+  `CommonJS` file - `.eslintrc.cjs`, with the following changes on the
+  configurations:
+  - Different rules and plugins are now applied based on file types, allowing
+    JavaScript files to be linted properly and only using plugins & rules needed
+    on the targeted files.
+  - Separated config to 4 objects -  naming as `baseConfig`, `tsConfig`,
+    `jestConfig`, and `specialConfig` respectively to maintain the readability
+    on the pervious `.eslintrc`.
+  - `eslint-plugin-import` is now properly configured for both JavaScript and
+    TypeScript files.
+  - `jest.config.js` & `webpack.config.js` are no longer ignored by ESLint.
+
+### Fixed
+- Module import order warnings in most modules.
+- ESLint warnings & errors on `jest.config.js` & `webpack.config.js`.
+
+### Updates on package dependencies
+### Added
+- `eslint-import-resolver-typescript` *- Better TypeScript support for ESLint
+  `import` plugin*
+
+### Removed
+- `eslint-import-resolver-webpack` *- Not being used in any part of the
+  boilerplate*
 
 ## [v4.0.0] - 2022-07-22
 ### Added
