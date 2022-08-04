@@ -1,8 +1,8 @@
-const lodash = require('lodash');
+const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const lodash = require('lodash');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const path = require('path');
 
 function srcPaths(src) {
   return path.join(__dirname, src);
@@ -68,7 +68,7 @@ mainConfig.plugins = [
 
           jsonContent.main = './main.bundle.js';
           jsonContent.scripts = { start: 'electron ./main.bundle.js' };
-          jsonContent.devDependencies = { electron: electronVersion }
+          jsonContent.devDependencies = { electron: electronVersion };
 
           return JSON.stringify(jsonContent, undefined, 2);
         },
