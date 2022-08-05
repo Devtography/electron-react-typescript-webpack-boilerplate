@@ -85,7 +85,12 @@ const jestConfig = {
 };
 
 const specialConfig = {
-  files: ['**/*.config.js', '**/*.config.*.js'],
+  files: [
+    '**/*.config.js',
+    '**/*.config.cjs',
+    '**/*.config.*.js',
+    '**/*.config.*.cjs',
+  ],
   rules: {
     ...baseConfig.rules,
     'import/no-extraneous-dependencies': 'off',

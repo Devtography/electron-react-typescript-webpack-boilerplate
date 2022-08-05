@@ -2,6 +2,7 @@
   "name": "electron-react-typescript-webpack-boilerplate",
   "version": "4.0.0",
   "description": "Pre-configured boilerplate for Electron + React + TypeScript",
+  "type": "module",
   "main": "./dist/main.bundle.js",
   "scripts": {
     "start": "electron ./dist/main.bundle.js",
