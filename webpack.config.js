@@ -1,8 +1,8 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const lodash = require('lodash');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const { merge } = require('webpack-merge');
 
 function srcPaths(src) {
   return path.join(__dirname, src);
@@ -11,7 +11,6 @@ function srcPaths(src) {
 const isEnvProduction = process.env.NODE_ENV === 'production';
 const isEnvDevelopment = process.env.NODE_ENV === 'development';
 
-// #region Common settings
 const commonConfig = {
   devtool: isEnvDevelopment ? 'source-map' : false,
   mode: isEnvProduction ? 'production' : 'development',
@@ -45,51 +44,53 @@ const commonConfig = {
     ],
   },
 };
-// #endregion
 
-const mainConfig = lodash.cloneDeep(commonConfig);
-mainConfig.entry = './src/main/main.ts';
-mainConfig.target = 'electron-main';
-mainConfig.output.filename = 'main.bundle.js';
-mainConfig.plugins = [
-  new CopyPlugin({
-    patterns: [
-      {
-        from: 'package.json',
-        to: 'package.json',
-        transform: (content, _path) => {
-          const jsonContent = JSON.parse(content);
-          const electronVersion = jsonContent.devDependencies.electron;
+const mainConfig = merge(commonConfig, {
+  entry: './src/main/main.ts',
+  target: 'electron-main',
+  output: { filename: 'main.bundle.js' },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'package.json',
+          to: 'package.json',
+          transform: (content, _path) => {
+            const jsonContent = JSON.parse(content);
+            const electronVersion = jsonContent.devDependencies.electron;
 
-          delete jsonContent.devDependencies;
-          delete jsonContent.optionalDependencies;
-          delete jsonContent.scripts;
-          delete jsonContent.build;
+            delete jsonContent.devDependencies;
+            delete jsonContent.optionalDependencies;
+            delete jsonContent.scripts;
+            delete jsonContent.build;
 
-          jsonContent.main = './main.bundle.js';
-          jsonContent.scripts = { start: 'electron ./main.bundle.js' };
-          jsonContent.devDependencies = { electron: electronVersion };
+            jsonContent.main = './main.bundle.js';
+            jsonContent.scripts = { start: 'electron ./main.bundle.js' };
+            jsonContent.devDependencies = { electron: electronVersion };
 
-          return JSON.stringify(jsonContent, undefined, 2);
+            return JSON.stringify(jsonContent, undefined, 2);
+          },
         },
-      },
-    ],
-  }),
-];
+      ],
+    }),
+  ],
+});
 
-const preloadConfig = lodash.cloneDeep(commonConfig);
-preloadConfig.entry = './src/preload/preload.ts';
-preloadConfig.target = 'electron-preload';
-preloadConfig.output.filename = 'preload.bundle.js';
+const preloadConfig = merge(commonConfig, {
+  entry: './src/preload/preload.ts',
+  target: 'electron-preload',
+  output: { filename: 'preload.bundle.js' },
+});
 
-const rendererConfig = lodash.cloneDeep(commonConfig);
-rendererConfig.entry = './src/renderer/renderer.tsx';
-rendererConfig.target = 'electron-renderer';
-rendererConfig.output.filename = 'renderer.bundle.js';
-rendererConfig.plugins = [
-  new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, './public/index.html'),
-  }),
-];
+const rendererConfig = merge(commonConfig, {
+  entry: './src/renderer/renderer.tsx',
+  target: 'electron-renderer',
+  output: { filename: 'renderer.bundle.js' },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './public/index.html'),
+    }),
+  ],
+});
 
 module.exports = [mainConfig, preloadConfig, rendererConfig];
