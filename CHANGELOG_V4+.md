@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `eslint-plugin-import` is now properly configured for both JavaScript and
     TypeScript files.
   - `jest.config.js` & `webpack.config.js` are no longer ignored by ESLint.
+- Improved the readability of `webpack.config.js` by migrating to `webpack-merge`
+  from using `lodash.deepClone()` for merging configuration objects.
 
 ### Fixed
 - Module import order warnings in most modules.
@@ -31,10 +33,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `eslint-import-resolver-typescript` *- Better TypeScript support for ESLint
   `import` plugin*
+- `webpack-merge` *- Replaced the sections using `lodash.deepClone()` in
+  `webpack.config.js`*
 
 ### Removed
 - `eslint-import-resolver-webpack` *- Not being used in any part of the
   boilerplate*
+- `lodash` *- Replaced by `webpack-merge` for its' usage in `webpack.config.js`*
 
 ## [v4.0.0] - 2022-07-22
 ### Added
