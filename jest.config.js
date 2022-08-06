@@ -1,8 +1,10 @@
-const { pathsToModuleNameMapper } = require('ts-jest');
+import { createRequire } from 'module';
+import { pathsToModuleNameMapper } from 'ts-jest';
+
+const require = createRequire(import.meta.url);
 const { compilerOptions } = require('./tsconfig.json');
 
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-module.exports = {
+export default {
   testEnvironment: 'node',
   globals: {
     'ts-jest': {
