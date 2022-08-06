@@ -1,12 +1,14 @@
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const { merge } = require('webpack-merge');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import CopyPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import { merge } from 'webpack-merge';
 
-function srcPaths(src) {
-  return path.join(__dirname, src);
-}
+/* eslint-disable no-underscore-dangle */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+/* eslint-enable */
 
 const isEnvProduction = process.env.NODE_ENV === 'production';
 const isEnvDevelopment = process.env.NODE_ENV === 'development';
@@ -14,7 +16,7 @@ const isEnvDevelopment = process.env.NODE_ENV === 'development';
 const commonConfig = {
   devtool: isEnvDevelopment ? 'source-map' : false,
   mode: isEnvProduction ? 'production' : 'development',
-  output: { path: srcPaths('dist') },
+  output: { path: path.join(__dirname, 'dist') },
   node: { __dirname: false, __filename: false },
   resolve: {
     extensions: ['.js', '.json', '.ts', '.tsx'],
@@ -59,6 +61,7 @@ const mainConfig = merge(commonConfig, {
             const jsonContent = JSON.parse(content);
             const electronVersion = jsonContent.devDependencies.electron;
 
+            delete jsonContent.type;
             delete jsonContent.devDependencies;
             delete jsonContent.optionalDependencies;
             delete jsonContent.scripts;
@@ -93,4 +96,4 @@ const rendererConfig = merge(commonConfig, {
   ],
 });
 
-module.exports = [mainConfig, preloadConfig, rendererConfig];
+export default [mainConfig, preloadConfig, rendererConfig];

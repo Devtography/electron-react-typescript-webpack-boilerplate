@@ -24,6 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `jest.config.js` & `webpack.config.js` are no longer ignored by ESLint.
 - Improved the readability of `webpack.config.js` by migrating to `webpack-merge`
   from using `lodash.deepClone()` for merging configuration objects.
+- Configured Node to resolve JavaScript files as ES modules (`"type": "module"`
+  in `package.json`).
+- Refactored Jest and Webpack config files as ES modules.
 
 ### Fixed
 - Module import order warnings in most modules.

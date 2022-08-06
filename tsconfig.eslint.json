@@ -8,6 +8,8 @@
     "tests/**/*",
     ".eslintrc.cjs",
     "**/*.config.js",
+    "**/*.config.cjs",
     "**/*.config.*.js",
+    "**/*.config.*.cjs"
   ]
 }
