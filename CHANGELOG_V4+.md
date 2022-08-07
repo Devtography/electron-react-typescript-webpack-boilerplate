@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [v4.1.0] - 2022-08-07
 ### Added
 - `tsconfig.eslint.json` to avoid ESLint complains for file not being included
   in project provided.
@@ -34,10 +36,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Updates on package dependencies
 ### Added
-- `eslint-import-resolver-typescript` *- Better TypeScript support for ESLint
+- `eslint-import-resolver-typescript` *- Enhanced TypeScript support for ESLint
   `import` plugin*
 - `webpack-merge` *- Replaced the sections using `lodash.deepClone()` in
   `webpack.config.js`*
+
+### Updated
+- Major version updates:
+  - `electron` - `19.0.9` -> `20.0.1`
+  - `tsconfig-paths-webpack-plugin` - `3.5.2` -> `4.0.0`
+- Minor & patch version updates:
+  - `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser` -
+    `5.30.7` -> `5.32.0`
+  - `eslint` - `8.20.0` -> `8.21.0`
+  - `eslint-plugin-jest` - `26.6.0` -> `26.7.0`
+  - `electron-builder` - `23.1.0` -> `23.3.3`
+  - `tsconfig-paths` - `4.0.0` -> `4.1.0`
 
 ### Removed
 - `eslint-import-resolver-webpack` *- Not being used in any part of the
@@ -125,5 +139,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `ts-jest`*
 - `spectron` *- Deprecated package; No replacement*
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.0.0...HEAD
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.0...HEAD
 [v4.0.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v3.0.0...v4.0.0
+[v4.1.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.0.0...v4.1.0
