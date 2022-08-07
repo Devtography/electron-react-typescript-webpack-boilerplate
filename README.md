@@ -1,6 +1,6 @@
-# Electron-React-TypeScript-Webpack-Boilerplate
+# Electron-React-TypeScript-Webpack (ERTW) Boilerplate
 A boilerplate that let you instantly start working on your next [Electron] app 
-in [TypeScript] with no time wasted messing with the config files.
+project in [TypeScript] with no time wasted messing with the config files.
 
 - Ready to use [Electron] project template with [React], [Webpack] and
   [TypeScript] seamlessly integrated.
@@ -16,8 +16,8 @@ in [TypeScript] with no time wasted messing with the config files.
 doesn't work, please [file an issue].*
 
 ### Maintenance schedule
-Starting from `v4.0.0`, the project maintenance will become much more regular.
-A new release will be published on a monthly basis to keep the package
+Starting from [`v4.0.0`], this project is set to receive regular maintenances.
+New releases will be published on monthly basis to keep the package
 dependencies, package configurations and APIs / syntax up to date.
 
 Maintenance work will begin on 1st of each month, and expect the new version to
@@ -27,9 +27,10 @@ especially on experimental features. If you want any particular feature to be
 implemented, please [file an issue], or consider make a [new pull request].
 
 ### Development plan
-- [ ] Create a `create-react-app`-like package initialiser __!!!__
+- [ ] Develop a `create-react-app`-like NPX tool __!!!__
+  __*([working on it](https://github.com/Devtography/create-ertw-app))*__
 - [ ] Integrate another end-to-end testing framework to replace [Spectron]
-- [ ] Migrate to Webpack 5 `Asset Modules`
+- [ ] Migrate to Webpack 5 `Asset Modules` __*(pending for `v4.2.0`)*__
 
 ---
 
@@ -47,6 +48,11 @@ implemented, please [file an issue], or consider make a [new pull request].
 - `mocha` has been dropped and replaced by [Jest] on `v4+`. If you're using
   `mocha` as your unit testing framework, please reference to `package.json`
   from [`v3.0.0`].
+
+- [ESLint] config file `.eslintrc.cjs` introduced in [`v4.1.0`] is written in
+  CommonJS syntax on purpose. As of the release of [`v4.1.0`], ESLint has yet
+  to support ES module for its' config file. __Converting the config file to
+  ES module will result in ESLint not working.__
 
 ---
 
@@ -123,7 +129,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   meant to improve performance of reading files if bundler like Webpack is not
   being used. The app packaging workflow defined in this boilerplate already
   uses Webpack to minify your code in `production` builds, so there shouldn't
-  be any significant performance different with `asar` archiving disabled.
+  be any significant performance difference with `asar` archiving disabled.
 
 ## Project folders & files
 - `dist/` - [Webpack] output location
@@ -210,7 +216,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   - `main/main.spec.ts` - Sample test file for `src/main/main`
   - `tsconfig.json` - TypeScript config file for `tests` module
 - `.eslintignore` - [ESLint] ignore file
-- `.eslintrc` - [ESLint] config file
+- `.eslintrc.cjs` - [ESLint] config file
 
   Configured to use Airbnb's rules with [TypeScript] supported, and rules for
   [Jest] applied.
@@ -229,6 +235,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   build config setup guides.
 
 - `README.md`
+- `tsconfig.eslint.json` - [TypeScript] config file consume by [ESLint].
 - `tsconfig.json` - [TypeScript] config file
 
   Module path aliases are configured here. [Jest] & [Webpack] will pick up the
@@ -240,13 +247,14 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   Includes configurations targetting `electron-main`, `electron-preload`, and
   `electron-renderer` respectively.
 
-## Author
-[Wing Chau](https://github.com/iamWing) [@Devtography](https://github.com/Devtography)
-
 ## Donation
 Maintaining this project takes time, lots of cups of coffee, and I do it for
-free. Consider buy me coffee via [donations]. 100% of donation will fund my
-coffee buying budget for quality coffee beans from great roasters I know 😉 ☕️️
+free. Consider buy me some coffee via [GitHub Sponsors] or [PayPal]. 100% of
+your donation will fund my coffee buying budget for quality coffee beans from
+great roasters I know 😉 ☕️️
+
+## Author
+[Wing Chau](https://github.com/iamWing) [@Devtography](https://github.com/Devtography)
 
 ## License
 Electron React TypeScript Webpack Boilerplate is open source software 
@@ -265,11 +273,15 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [Playwright]: https://playwright.dev
 [WebdriverIO]: https://webdriver.io
 [Spectron Deprecation Notice]: https://www.electronjs.org/blog/spectron-deprecation-notice
-[`v3.0.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v3.0.0
 [`Use this template`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/generate
 [`tsconfig-paths`]: https://github.com/dividab/tsconfig-paths
 [`tsconfig-paths-webpack-plugin`]: https://github.com/dividab/tsconfig-paths-webpack-plugin
 [Electron quick start guide]: https://www.electronjs.org/docs/latest/tutorial/quick-start
 [Electron Forge]: https://github.com/electron-userland/electron-forge
 [`electron-builder`'s document]: https://www.electron.build
-[donations]: https://github.com/sponsors/iamWing
+[GitHub Sponsors]: https://github.com/sponsors/iamWing
+[PayPal]: https://paypal.me/iamWing0w0
+
+[`v3.0.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v3.0.0
+[`v4.0.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.0.0
+[`v4.1.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.1.0

@@ -24,5 +24,5 @@
     "jsx": "react",
     "target": "ES2020"
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*"]
 }

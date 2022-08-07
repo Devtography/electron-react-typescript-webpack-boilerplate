@@ -6,6 +6,58 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v4.1.0] - 2022-08-07
+### Added
+- `tsconfig.eslint.json` to avoid ESLint complains for file not being included
+  in project provided.
+
+### Changed
+- Migrated from deprecated `.eslintrc` (ESLint config with no file extension) to
+  `CommonJS` file - `.eslintrc.cjs`, with the following changes on the
+  configurations:
+  - Different rules and plugins are now applied based on file types, allowing
+    JavaScript files to be linted properly and only using plugins & rules needed
+    on the targeted files.
+  - Separated config to 4 objects -  naming as `baseConfig`, `tsConfig`,
+    `jestConfig`, and `specialConfig` respectively to maintain the readability
+    on the pervious `.eslintrc`.
+  - `eslint-plugin-import` is now properly configured for both JavaScript and
+    TypeScript files.
+  - `jest.config.js` & `webpack.config.js` are no longer ignored by ESLint.
+- Improved the readability of `webpack.config.js` by migrating to `webpack-merge`
+  from using `lodash.deepClone()` for merging configuration objects.
+- Configured Node to resolve JavaScript files as ES modules (`"type": "module"`
+  in `package.json`).
+- Refactored Jest and Webpack config files as ES modules.
+
+### Fixed
+- Module import order warnings in most modules.
+- ESLint warnings & errors on `jest.config.js` & `webpack.config.js`.
+
+### Updates on package dependencies
+### Added
+- `eslint-import-resolver-typescript` *- Enhanced TypeScript support for ESLint
+  `import` plugin*
+- `webpack-merge` *- Replaced the sections using `lodash.deepClone()` in
+  `webpack.config.js`*
+
+### Updated
+- Major version updates:
+  - `electron` - `19.0.9` -> `20.0.1`
+  - `tsconfig-paths-webpack-plugin` - `3.5.2` -> `4.0.0`
+- Minor & patch version updates:
+  - `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser` -
+    `5.30.7` -> `5.32.0`
+  - `eslint` - `8.20.0` -> `8.21.0`
+  - `eslint-plugin-jest` - `26.6.0` -> `26.7.0`
+  - `electron-builder` - `23.1.0` -> `23.3.3`
+  - `tsconfig-paths` - `4.0.0` -> `4.1.0`
+
+### Removed
+- `eslint-import-resolver-webpack` *- Not being used in any part of the
+  boilerplate*
+- `lodash` *- Replaced by `webpack-merge` for its' usage in `webpack.config.js`*
+
 ## [v4.0.0] - 2022-07-22
 ### Added
 - Jest as default unit testing framework, with sample test suite for `main`.
@@ -87,5 +139,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `ts-jest`*
 - `spectron` *- Deprecated package; No replacement*
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.0.0...HEAD
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.0...HEAD
 [v4.0.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v3.0.0...v4.0.0
+[v4.1.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.0.0...v4.1.0
