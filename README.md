@@ -1,4 +1,6 @@
 # Electron-React-TypeScript-Webpack (ERTW) Boilerplate
+![badge-ver] ![badge-license]
+
 A boilerplate that let you instantly start working on your next [Electron] app 
 project in [TypeScript] with no time wasted messing with the config files.
 
@@ -31,6 +33,7 @@ implemented, please [file an issue], or consider make a [new pull request].
   __*([working on it](https://github.com/Devtography/create-ertw-app))*__
 - [ ] Integrate another end-to-end testing framework to replace [Spectron]
 - [ ] Migrate to Webpack 5 `Asset Modules` __*(pending for `v4.2.0`)*__
+- [ ] Integrate HMR & Webpack dev server
 
 ---
 
@@ -259,6 +262,9 @@ great roasters I know 😉 ☕️️
 ## License
 Electron React TypeScript Webpack Boilerplate is open source software 
 [licensed as MIT](LICENSE).
+
+[badge-ver]: https://img.shields.io/github/package-json/v/devtography/electron-react-typescript-webpack-boilerplate
+[badge-license]: https://img.shields.io/github/license/Devtography/electron-react-typescript-webpack-boilerplate
 
 [Electron]: https://www.electronjs.org
 [React]: https://reactjs.org

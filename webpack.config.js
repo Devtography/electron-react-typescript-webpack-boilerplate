@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import webpack from 'webpack';
 import { merge } from 'webpack-merge';
 
 /* eslint-disable no-underscore-dangle */
@@ -18,6 +19,12 @@ const commonConfig = {
   mode: isEnvProduction ? 'production' : 'development',
   output: { path: path.join(__dirname, 'dist') },
   node: { __dirname: false, __filename: false },
+  plugins: [
+    new webpack.NormalModuleReplacementPlugin(/.*\/+.+\.js$/, (resource) => {
+      // eslint-disable-next-line no-param-reassign
+      resource.request = resource.request.replace(/\.js$/, '');
+    }),
+  ],
   resolve: {
     extensions: ['.js', '.json', '.ts', '.tsx'],
     plugins: [new TsconfigPathsPlugin({
