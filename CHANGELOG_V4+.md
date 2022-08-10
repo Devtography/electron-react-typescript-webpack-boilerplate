@@ -11,7 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cannot find module issue reported by TypeScript server on relative imports
   after the migration to ES modules.
 
+---
+
 ### Updates on package dependencies
+### Updated
 - Minor & patch version updates:
   - `@types/react` - `18.0.15` -> `18.0.17`
   - `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser` -
@@ -45,6 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Module import order warnings in most modules.
 - ESLint warnings & errors on `jest.config.js` & `webpack.config.js`.
+
+---
 
 ### Updates on package dependencies
 ### Added
@@ -108,6 +113,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Mocha in favour of Jest.
 - Spectron as it ahs been deprecated. 
   *See - [Spectron Deprecation Notice](https://www.electronjs.org/blog/spectron-deprecation-notice)*
+
+---
 
 ### Updates on package dependencies
 ### Added
