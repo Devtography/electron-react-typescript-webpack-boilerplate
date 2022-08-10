@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v4.1.1] - 2022-08-10
+### Fixed
+- Cannot find module issue reported by TypeScript server on relative imports
+  after the migration to ES modules.
+
+### Updates on package dependencies
+- Minor & patch version updates:
+  - `@types/react` - `18.0.15` -> `18.0.17`
+  - `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser` -
+    `5.32.0` -> `5.33.0`
+  - `eslint-plugin-jest` - `26.7.0` -> `26.8.2`
+
 ## [v4.1.0] - 2022-08-07
 ### Added
 - `tsconfig.eslint.json` to avoid ESLint complains for file not being included
@@ -139,6 +151,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `ts-jest`*
 - `spectron` *- Deprecated package; No replacement*
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.0...HEAD
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.1...HEAD
 [v4.0.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v3.0.0...v4.0.0
 [v4.1.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.0.0...v4.1.0
+[v4.1.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.2.0...v4.1.1
