@@ -8,7 +8,7 @@
     "start": "electron ./dist/main.bundle.js",
     "dev": "rimraf dist && cross-env NODE_ENV=development webpack --watch --progress --color",
     "prod": "rimraf dist && cross-env NODE_ENV=production webpack --progress --color",
-    "test": "cross-env NODE_ENV=test jest",
+    "test": "jest --clearCache && cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest",
     "watch-test": "npm run test -- --watchAll",
     "next-rc": "npm --no-git-tag-version version prerelease --preid=rc",
     "next-patch": "npm --no-git-tag-version version patch",
