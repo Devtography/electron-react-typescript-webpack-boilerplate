@@ -10,7 +10,7 @@ const { compilerOptions } = require('./tsconfig.json');
  *
  * @returns Jest path mappings map.
  */
-function pathsToESMModuleNameMapper() {
+function pathsToESModuleNameMapper() {
   const map = pathsToModuleNameMapper(
     compilerOptions.paths,
     { prefix: '<rootDir>' },
@@ -39,7 +39,7 @@ export default {
     },
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  moduleNameMapper: pathsToESMModuleNameMapper(),
+  moduleNameMapper: pathsToESModuleNameMapper(),
   modulePathIgnorePatterns: [
     '<rootDir>/dist',
     '<rootDir>/node_modules',
