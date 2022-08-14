@@ -79,6 +79,7 @@ const jestConfig = {
   ],
   rules: {
     ...tsConfig.rules,
+    'import/no-extraneous-dependencies': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
   },
   settings: tsConfig.settings,
