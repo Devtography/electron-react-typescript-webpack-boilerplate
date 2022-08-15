@@ -3,7 +3,7 @@
     "strict": true,
     "baseUrl": ".",
     "module": "ES2020",
-    "moduleResolution": "Node16",
+    "moduleResolution": "Node",
     "paths": {
       "_/*": ["src/*"],
       "_public/*": ["public/*"],
