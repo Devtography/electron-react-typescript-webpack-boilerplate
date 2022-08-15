@@ -68,7 +68,6 @@ const mainConfig = merge(commonConfig, {
             const jsonContent = JSON.parse(content);
             const electronVersion = jsonContent.devDependencies.electron;
 
-            delete jsonContent.type;
             delete jsonContent.devDependencies;
             delete jsonContent.optionalDependencies;
             delete jsonContent.scripts;

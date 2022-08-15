@@ -9,7 +9,9 @@
     ".eslintrc.cjs",
     "**/*.config.js",
     "**/*.config.cjs",
+    "**/*.config.mjs",
     "**/*.config.*.js",
-    "**/*.config.*.cjs"
+    "**/*.config.*.cjs",
+    "**/*.config.*.mjs"
   ]
 }
