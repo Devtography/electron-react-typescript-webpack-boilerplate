@@ -1,5 +1,9 @@
 # Electron-React-TypeScript-Webpack (ERTW) Boilerplate
-![badge-ver] ![badge-license]
+![badge-ver] ![badge-node-ver] ![badge-license]
+
+[badge-ver]: https://img.shields.io/github/package-json/v/devtography/electron-react-typescript-webpack-boilerplate
+[badge-license]: https://img.shields.io/github/license/Devtography/electron-react-typescript-webpack-boilerplate
+[badge-node-ver]: https://img.shields.io/badge/node--lts-%3E%3D16-orange
 
 A boilerplate that let you instantly start working on your next [Electron] app 
 project in [TypeScript] with no time wasted messing with the config files.
@@ -34,6 +38,8 @@ implemented, please [file an issue], or consider make a [new pull request].
 - [ ] Integrate another end-to-end testing framework to replace [Spectron]
 - [ ] Migrate to Webpack 5 `Asset Modules` __*(pending for `v4.2.0`)*__
 - [ ] Integrate HMR & Webpack dev server
+- [x] Monitor the status of ESM support on [Jest] & [ts-jest]
+  __*(Check [Known issues](#known-issues) for details)*__
 
 ---
 
@@ -56,6 +62,11 @@ implemented, please [file an issue], or consider make a [new pull request].
   CommonJS syntax on purpose. As of the release of [`v4.1.0`], ESLint has yet
   to support ES module for its' config file. __Converting the config file to
   ES module will result in ESLint not working.__
+
+- As of [`v4.1.2`], [Jest] & [ts-jest] are __NOT__ configured to run the test
+  files as ES modules, despite all other sections of this boilerplate are
+  configured to support native ES modules. Please check
+  [Known issues](#known-issues) for details.
 
 ---
 
@@ -134,6 +145,42 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   uses Webpack to minify your code in `production` builds, so there shouldn't
   be any significant performance difference with `asar` archiving disabled.
 
+- __IMPORTANT!!!__
+
+  As of [`v4.1.2`], the `jest.mock()` function is broken if [Jest] and [ts-jest]
+  are configured with [ESM Support]. The following code will result in a
+  `SyntaxError` being thrown when trying to execute the test with Jest.
+
+  ```ts
+  import { jest } from '@jest/globals';
+  import { BrowserWindow } from 'electron';
+
+  jest.mock('electron', () => {
+    BrowserWindow: jest.fn().mockImplementation(() => {
+      loadFile: jest.fn(() => Promise.resolve()),
+      on: jest.fn(),
+    }),
+  });
+  ```
+
+  ```
+  SyntaxError: The requested module 'electron' does not provide an export named 'BrowserWindow'
+  ```
+
+  The current solution is to keep using the non ESM supported version of
+  `jest.config.js`, but with `NODE_OPTIONS=--experimental-vm-modules` set when
+  running Jest (already set in [`v4.1.2`]). The drawback of this is you won't
+  be able to use `import.meta` APIs in your code. It could be a deal breaker for
+  some of you.
+  
+  I'm closely monitoring the situation atm, and I'll consider rollback the ESM
+  related setting introduced in [`v4.1.0`] if there's no progress made solving
+  this issue by the time I prepare the release of `v4.2.0`. You can track the
+  progress on a related issue [facebook/jest #10025] if you want.
+
+[ESM Support]: https://kulshekhar.github.io/ts-jest/docs/guides/esm-support/
+[facebook/jest #10025]: https://github.com/facebook/jest/issues/10025
+
 ## Project folders & files
 - `dist/` - [Webpack] output location
 
@@ -163,8 +210,8 @@ To package your Electron app, run `npm run prod` to get your code compiled in
       many APIs for IPC. See example as below:
       ```ts
       // ipc-api/index.ts
-      import submoduleA from './submodule-a';
-      import submoduleB from './submodule-b';
+      import submoduleA from './submodule-a.js';
+      import submoduleB from './submodule-b.js';
 
       export default { ...submoduleA, ...submoduleB };
 
@@ -217,6 +264,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   you'd use TypeScript if you're using this boilerplate.
 
   - `main/main.spec.ts` - Sample test file for `src/main/main`
+  - `utils/node-env.spec.ts` - Unit test for `src/utils/node-env`
   - `tsconfig.json` - TypeScript config file for `tests` module
 - `.eslintignore` - [ESLint] ignore file
 - `.eslintrc.cjs` - [ESLint] config file
@@ -263,9 +311,6 @@ great roasters I know 😉 ☕️️
 Electron React TypeScript Webpack Boilerplate is open source software 
 [licensed as MIT](LICENSE).
 
-[badge-ver]: https://img.shields.io/github/package-json/v/devtography/electron-react-typescript-webpack-boilerplate
-[badge-license]: https://img.shields.io/github/license/Devtography/electron-react-typescript-webpack-boilerplate
-
 [Electron]: https://www.electronjs.org
 [React]: https://reactjs.org
 [Webpack]: https://webpack.js.org
@@ -276,6 +321,7 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [file an issue]: https://www.electronjs.org
 [new pull request]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare
 [Spectron]: https://github.com/electron-userland/spectron
+[ts-jest]: https://github.com/kulshekhar/ts-jest
 [Playwright]: https://playwright.dev
 [WebdriverIO]: https://webdriver.io
 [Spectron Deprecation Notice]: https://www.electronjs.org/blog/spectron-deprecation-notice
@@ -291,3 +337,4 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [`v3.0.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v3.0.0
 [`v4.0.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.0.0
 [`v4.1.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.1.0
+[`v4.1.2`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.1.2

@@ -6,12 +6,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v4.1.2] - 2022-08-15
+### Added
+- Function `pathsToESModuleNameMapper` in `jest.config.js` to create the module
+  mappings with ESM relative import with file extension (`.js`) syntax support
+  for Jest from the path aliases set in `tsconfig`. 
+
+### Changed
+- Disable ESLint rule `import/no-extraneous-dependencies` on unit test files.
+- NPM script `test` now clear the cache for Jest before running the test and
+  execute Jest with `NODE_OPTIONS=--experimental-vm-modules` flag to allow
+  using dynamic import syntax.
+
+### Fixed
+- Cannot find module issue reported by TypeScript server on relative imports in
+  the unit test files after setting up native ES module support in [v4.1.0].
+
+---
+
+### Updates on package dependencies
+### Update
+- Minor & patch version updates:
+  - `electron` - `20.0.1` -> `20.0.2`
+  - `eslint` - `8.21.0` -> `8.22.0`
+  - `eslint-import-resolver-typescript` - `3.4.0` -> `3.4.1`
+
 ## [v4.1.1] - 2022-08-10
 ### Fixed
 - Cannot find module issue reported by TypeScript server on relative imports
-  after the migration to ES modules.
+  after setting up native ES module support in [v4.1.0].
+
+---
 
 ### Updates on package dependencies
+### Update
 - Minor & patch version updates:
   - `@types/react` - `18.0.15` -> `18.0.17`
   - `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser` -
@@ -45,6 +73,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Module import order warnings in most modules.
 - ESLint warnings & errors on `jest.config.js` & `webpack.config.js`.
+
+---
 
 ### Updates on package dependencies
 ### Added
@@ -109,6 +139,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Spectron as it ahs been deprecated. 
   *See - [Spectron Deprecation Notice](https://www.electronjs.org/blog/spectron-deprecation-notice)*
 
+---
+
 ### Updates on package dependencies
 ### Added
 - `@types/jest`, `jest`, `ts-jest`, `eslint-plugin-jest` *- Jest support*
@@ -151,7 +183,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `ts-jest`*
 - `spectron` *- Deprecated package; No replacement*
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.1...HEAD
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.2...HEAD
 [v4.0.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v3.0.0...v4.0.0
 [v4.1.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.0.0...v4.1.0
-[v4.1.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.2.0...v4.1.1
+[v4.1.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.0...v4.1.1
+[v4.1.2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.1...v4.1.2
