@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- File extension of Jest & Webpack config files to `mjs`.
+- NPM `test` script:
+  - Removed `jest --clearCache` at the beginning as the updated Jest & ts-jest
+    settings execute the dynamic import lines with no issue.
+  - Disabled Node experimental warning message by setting `NODE_NO_WARNINGS=1`.
+- Rolled back the value of `moduleResolution` in `tsconfig` to `Node` (means
+  `.js` file extension on relative imports is now __OPTIONAL__).
+- Enhanced function `pathsToESModuleNameMapper` in `jest.config.js` to return a
+  less clumsy mapping object.
 
 ## [v4.1.2] - 2022-08-15
 ### Added
