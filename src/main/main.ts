@@ -4,7 +4,7 @@
 import * as path from 'path';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserWindow, app, ipcMain } from 'electron';
-import * as nodeEnv from '_utils/node-env.js';
+import * as nodeEnv from '_utils/node-env';
 
 let mainWindow: Electron.BrowserWindow | undefined;
 

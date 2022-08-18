@@ -1,7 +1,7 @@
 declare global {
   interface Window {
     /** APIs for Electron IPC */
-    ipcAPI?: typeof import('_preload/ipc-api.js').default
+    ipcAPI?: typeof import('_preload/ipc-api').default
   }
 }
 
