@@ -9,6 +9,7 @@
     "prod": "rimraf dist && cross-env NODE_ENV=production webpack --progress --color",
     "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 jest",
     "watch-test": "npm run test -- --watchAll",
+    "lint": "eslint . --cache --ext js,jsx,cjs,mjs,ts,tsx",
     "next-rc": "npm --no-git-tag-version version prerelease --preid=rc",
     "next-patch": "npm --no-git-tag-version version patch",
     "next-minor": "npm --no-git-tag-version version minor",
