@@ -19,6 +19,14 @@ jobs:
     uses: ./.github/workflows/prepare-cache.yml
     with:
       os: ubuntu-latest
+  prepare-npm-cache-macos:
+    uses: ./.github/workflows/prepare-cache.yml
+    with:
+      os: macos-latest
+  prepare-npm-cache-windows:
+    uses: ./github/workflows/prepare-cache.yml
+    with:
+      os: windows-latest
 
   lint:
     name: Lint
@@ -35,3 +43,19 @@ jobs:
         run: npm ci
       - name: run eslint
         run: npm run lint
+
+  test-ubuntu:
+    uses: ./.github/workflows/test.yml
+    needs: prepare-npm-cache-ubuntu
+    with:
+      os: ubuntu-latest
+  test-macos:
+    uses: ./.github/workflows/test.yml
+    needs: prepare-npm-cache-macos
+    with:
+      os: macos-latest
+  test-windows:
+    uses: ./.github/workflows/test.yml
+    needs: prepare-map-cache-windows
+    with:
+      os: windows-latest
