@@ -24,7 +24,7 @@ jobs:
     with:
       os: macos-latest
   prepare-npm-cache-windows:
-    uses: ./github/workflows/prepare-cache.yml
+    uses: ./.github/workflows/prepare-cache.yml
     with:
       os: windows-latest
 
