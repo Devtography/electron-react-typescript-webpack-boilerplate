@@ -5,12 +5,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- GitHub workflows for CI.
+- Jest config for GitHub Actions - `jest.config.ci.mjs`.
+- NPM scripts:
+  - `lint` to run ESLint from CLI.
+  - `jest` to replace the original `test` script with the following changes:
+    - Removed `jest --clearCache` at the beginning as the updated Jest & ts-jest
+      settings execute the dynamic import lines with no issue.
+    - Disabled Node experimental warning message by setting `NODE_NO_WARNINGS=1`.
+  - `jest-ci` to run Jest with CI config - `jest.config.ci.mjs`.
+
 ### Changed
 - File extension of Jest & Webpack config files to `mjs`.
-- NPM `test` script:
-  - Removed `jest --clearCache` at the beginning as the updated Jest & ts-jest
-    settings execute the dynamic import lines with no issue.
-  - Disabled Node experimental warning message by setting `NODE_NO_WARNINGS=1`.
+- NPM `test` script to run scripts `lint` then `jest`.
 - Rolled back the value of `moduleResolution` in `tsconfig` to `Node` (means
   `.js` file extension on relative imports is now __OPTIONAL__).
 - Enhanced function `pathsToESModuleNameMapper` in `jest.config.js` to return a
