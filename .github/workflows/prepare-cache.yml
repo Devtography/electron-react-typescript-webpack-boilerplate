@@ -21,4 +21,4 @@ jobs:
           cache: npm
 
       - name: Validate cache
-        run: npm ci
+        run: npm ci --omit optional
