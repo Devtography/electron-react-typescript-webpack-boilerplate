@@ -13,8 +13,8 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [14.x, 16.x]
-    name: Node v${{ matrix.node-version }} on ${{ input.os }}
-    runs-on: ${{ input.os }}
+    name: Node v${{ matrix.node-version }} on ${{ inputs.os }}
+    runs-on: ${{ inputs.os }}
 
     steps:
       - uses: actions/checkout@v3

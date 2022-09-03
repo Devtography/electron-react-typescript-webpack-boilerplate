@@ -9,8 +9,8 @@ on:
 
 jobs:
   prepare-npm-cache:
-    name: Prepare npm cache for ${{ input.os }}
-    runs-on: ${{ input.os }}
+    name: Prepare npm cache for ${{ inputs.os }}
+    runs-on: ${{ inputs.os }}
 
     steps:
       - uses: actions/checkout@v3
