@@ -56,6 +56,6 @@ jobs:
       os: macos-latest
   test-windows:
     uses: ./.github/workflows/test.yml
-    needs: prepare-map-cache-windows
+    needs: prepare-npm-cache-windows
     with:
       os: windows-latest
