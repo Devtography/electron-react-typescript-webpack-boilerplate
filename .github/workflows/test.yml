@@ -24,6 +24,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
       - name: install
-        run: npm ci
+        run: npm ci --omit optional
       - name: run tests
         run: npm run jest-ci

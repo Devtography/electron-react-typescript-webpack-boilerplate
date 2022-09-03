@@ -40,7 +40,7 @@ jobs:
           node-version: lts/*
           cache: npm
       - name: install
-        run: npm ci
+        run: npm ci --omit optional
       - name: run eslint
         run: npm run lint
 
