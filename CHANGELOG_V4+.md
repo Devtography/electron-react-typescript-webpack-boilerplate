@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- GitHub community standards & related workflows([#39](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/pull/39))
 - GitHub workflows for CI.
 - Jest config for GitHub Actions - `jest.config.ci.mjs`.
 - NPM scripts:
