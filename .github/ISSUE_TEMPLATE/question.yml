@@ -1,0 +1,27 @@
+name: 'Questions / Help 💬'
+description: If you have question, please check StackOverflow first for the relevant package(s) in concern
+title: '[Please read the message below]'
+labels: [':speech_balloon: Question']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Questions and Help 💬
+
+        This issue tracker is reserved for bug reports and feature proposals.
+
+        For anything else, such as questions or getting help, please see:
+        
+        - [Discussions](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/discussions)
+        - [StackOverflow](https://stackoverflow.com) for whichever package(s) in concern
+
+        If you're having questions about the boilerplate or want to ask for help, start a thread in [Discussions](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/discussions) instead.
+  - type: checkboxes
+    id: no-post
+    attributes:
+      label: Please do not submit this issue.
+      description: |
+        :bangbang: This issue will be closed. :bangbang:
+      options:
+        - label: I understand
+          required: true

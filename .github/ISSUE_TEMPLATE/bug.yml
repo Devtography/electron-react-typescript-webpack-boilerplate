@@ -1,0 +1,122 @@
+name: Bug Report 🪲
+description: Create a bug report to help us improve
+title: '[Bug]: '
+labels: ['Bug Report']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Please follow these steps first:
+  - type: markdown
+    attributes:
+      value: |
+        ## Troubleshoot
+        If the boilerplate is not behaving the way you expect, we'd ask you to look at the [README](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate#readme) and search the issue tracker before submitting the issue. Please make reasonable efforts to troubleshoot and rule out issues with your code, the configuration, or any 3rd party libraries you might be using.
+  - type: markdown
+    attributes:
+      value: |
+        ## Ask for help through appropriate channels
+        If you feel unsure about the cause of the problem, consider asking for help on for example [StackOverflow](https://stackoverflow.com/questions/ask) or our [Discussions section](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/discussions) before posting a bug report. This issue tracker is not a help forum.
+  - type: markdown
+    attributes:
+      value: |
+        ## Make a minimal reproduction
+        To file the report, you will need a GitHub repository with a minimal (but complete) example and simple/clear steps on how to reproduce the bug. If all your tests fail with a strange error, can you find a way to show us with just one? If you have many extra configuration options in your config files, can you simplify them?
+
+        The simpler you can make it, the more likely we are to successfully verify and fix the bug.
+  - type: markdown
+    attributes:
+      value: |
+        :bangbang: Bug reports without a minimal reproduction will be rejected. :bangbang:
+
+        ---
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: |
+        The version of ERTW boilerplate you are using.
+        Is it the [latest](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases)? Test and see if the bug has already been fixed.
+      placeholder: ex. 4.1.2
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Please link to a repository with a minimal reproduction and describe accurately how we can reproduce/verify the bug.
+      placeholder: |
+        Example steps (replace with your own):
+        1. Clone my repo at https://github.com/<username>/example
+        2. npm ci
+        3. npm test
+        4. You should see the error comes up
+    validations:
+      required: true
+  - type:  textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: A description of what you expect to happen.
+      placeholder: I expect to see X or Y
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Actual behaviour
+      description: A clear and concise description of the unexpected behaviour.
+      placeholder: A bug happened!
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else that might be relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: envinfo
+    attributes:
+      label: Environment
+      description: |
+        Please paste the output of running `npx envinfo --system --binaries --npmPackages`
+      placeholder: |
+        System:
+          OS: Linux 5.4 Ubuntu 20.04.4 LTS (Focal Fossa)
+          CPU: (4) x64 Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+          Memory: 5.10 GB / 7.77 GB
+          Container: Yes
+          Shell: 5.0.17 - /bin/bash
+        Binaries:
+          Node: 16.17.0 - ~/.nvm/versions/node/v16.17.0/bin/node
+          Yarn: 1.22.15 - /opt/yarn/stable/bin/yarn
+          npm: 8.19.1 - ~/.nvm/versions/node/v16.17.0/bin/npm
+        npmPackages:
+          @types/jest: ^28.1.6 => 28.1.6 
+          @types/react: ^18.0.17 => 18.0.17 
+          @types/react-dom: ^18.0.6 => 18.0.6 
+          @typescript-eslint/eslint-plugin: ^5.33.0 => 5.33.0 
+          @typescript-eslint/parser: ^5.33.0 => 5.33.0 
+          cross-env: ^7.0.3 => 7.0.3 
+          electron: ^20.0.2 => 20.0.2 
+          eslint: ^8.22.0 => 8.22.0 
+          eslint-config-airbnb: ^19.0.4 => 19.0.4 
+          eslint-config-airbnb-typescript: ^17.0.0 => 17.0.0 
+          eslint-import-resolver-typescript: ^3.4.1 => 3.4.1 
+          eslint-plugin-import: ^2.26.0 => 2.26.0 
+          eslint-plugin-jest: ^26.8.2 => 26.8.2 
+          eslint-plugin-jsx-a11y: ^6.6.1 => 6.6.1 
+          eslint-plugin-react: ^7.30.1 => 7.30.1 
+          eslint-plugin-react-hooks: ^4.6.0 => 4.6.0 
+          jest: ^28.1.3 => 28.1.3 
+          react: ^18.2.0 => 18.2.0 
+          react-dom: ^18.2.0 => 18.2.0 
+          ts-jest: ^28.0.7 => 28.0.7 
+          typescript: ^4.7.4 => 4.7.4 
+      render: Shell
+    validations:
+      required: true
+         
