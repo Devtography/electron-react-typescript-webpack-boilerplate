@@ -182,6 +182,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 [facebook/jest #10025]: https://github.com/facebook/jest/issues/10025
 
 ## Project folders & files
+- `.github/` - GitHub repo config & GitHub Actions workflows
 - `dist/` - [Webpack] output location
 
   __Contents will be flushed automatically on execution of `npm run <dev|prod>`
@@ -275,6 +276,8 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 - `.gitignore` - Git ignore file
 - `CHANGELOG_PRE_V4.md` - Changelog of this boilerplate prior to `v4.0.0`
 - `CHANGELOG_V4+.md` - Changelog of this boilerplate from `v4.0.0` onwards
+- `CODE_OF_CONDUCT.md`
+- `CONTRIBUTING.md` - Contribution guide
 - `jest.config.ci.mjs` - [Jest] config file for GitHub Actions
 - `jest.config.mjs` - [Jest] config file
 - `LICENSE` - MIT license
