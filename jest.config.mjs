@@ -34,13 +34,9 @@ function pathsToESModuleNameMapper() {
   return esmMap;
 }
 
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
   testEnvironment: 'node',
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json',
-    },
-  },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   moduleNameMapper: pathsToESModuleNameMapper(),
   modulePathIgnorePatterns: [
@@ -49,10 +45,15 @@ export default {
     '<rootDir>/out',
   ],
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.json',
+      },
+    ],
   },
   testMatch: [
-    '**/tests/**/*.(spec|test).(ts?(x)|js?(x))',
+    '**/tests/**/*.(spec|test).([jt]s?(x))',
   ],
   collectCoverage: true,
   verbose: true,
