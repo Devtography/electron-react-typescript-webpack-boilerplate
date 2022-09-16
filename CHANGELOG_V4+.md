@@ -19,11 +19,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - File extension of Jest & Webpack config files to `mjs`.
+- Jest config to move `ts-jest` config to `transform` ([#40])
 - NPM `test` script to run scripts `lint` then `jest`.
 - Rolled back the value of `moduleResolution` in `tsconfig` to `Node` (means
   `.js` file extension on relative imports is now __OPTIONAL__).
 - Enhanced function `pathsToESModuleNameMapper` in `jest.config.js` to return a
   less clumsy mapping object.
+
+### Updates on package dependencies
+
+### Update
+- Major version updates:
+  - `@types/jest` - `28.1.6` -> `29.0.2` ([#40])
+  - `jest` - `28.1.3` -> `29.0.3` ([#40])
+  - `ts-jest` - `28.0.7` -> `29.0.1` ([#40])
+
+[#40]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/pull/40
 
 ## [v4.1.2] - 2022-08-15
 ### Added
