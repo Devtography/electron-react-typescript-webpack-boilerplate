@@ -1,0 +1,57 @@
+name: Build app package
+
+on:
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+
+jobs:
+  build-app-package:
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [14.x, 16.x]
+    name: Build app package with Node v${{ matrix.node-version }} on ${{ inputs.os }}
+    runs-on: ${{ inputs.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+        
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Prepare Webpack bundle cache
+        id: cache-webpack-bundles
+        uses: actions/cache@v3
+        with:
+          path: ./dist
+          key: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}-webpack-${{ inputs.os }}
+
+      - name: Install
+        run: npm ci
+
+      - if: ${{ steps.cache-webpack-bundles.outputs.cache-hit != 'true' }}
+        name: Run webpack
+        run: npm run prod
+
+      - if: ${{ inputs.os == 'ubuntu-latest' }}
+        name: Build app package on ${{ inputs.os }}
+        run: |
+          echo "Build on Linux is not yet supported."
+          exit 1
+
+      - if: ${{ inputs.os == 'macos-latest' }}
+        name: Build Windows & mac app packages on ${{ inputs.os }}
+        run: |
+          npm run build:mac
+          npm run build:win
+
+      - if: ${{ inputs.os == 'windows-latest' }}
+        name: Build Windows app package on ${{ inputs.os }}
+        run: npm run build:win
+
