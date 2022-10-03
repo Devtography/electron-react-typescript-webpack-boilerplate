@@ -32,7 +32,7 @@ jobs:
           path: ./dist
           key: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}-webpack-${{ inputs.os }}
 
-      - name: install
+      - name: Install
         run: npm ci
-      - name: run webpack
+      - name: Run webpack
         run: npm run prod
