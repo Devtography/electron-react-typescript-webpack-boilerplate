@@ -25,6 +25,7 @@ jobs:
             VERSIONS="[16.x]"
           fi
           echo ::set-output name=node_versions::"$SERVICES"
+        shell: bash
 
   build-app-package:
     needs: setup-matrix
@@ -83,3 +84,4 @@ jobs:
           else
             npm run build:win
           fi
+        shell: bash
