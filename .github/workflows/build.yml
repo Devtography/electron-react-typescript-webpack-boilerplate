@@ -14,17 +14,17 @@ jobs:
   setup-matrix:
     runs-on: ${{ inputs.os }}
     outputs:
-      node_versions: ${{ steps.generate-matrix.output.node-versions }}
+      node_versions: ${{ steps.generate-matrix.outputs.node_versions }}
     steps:
       - name: Generate matrix
         id: generate-matrix
         run: |
           if [ "${{ inputs.test-only }}" = "true" ]; then
-            VERSIONS="[14.x, 16.x]"
+            VERSIONS='["14.x", "16.x"]'
           else
-            VERSIONS="[16.x]"
+            VERSIONS='["16.x"]'
           fi
-          echo ::set-output name=node_versions::"$SERVICES"
+          echo ::set-output name=node_versions::"$VERSIONS"
         shell: bash
 
   build-app-package:
@@ -70,7 +70,7 @@ jobs:
         run: |
           if [ "${{ inputs.test-only }}" = "true" ]; then
             npm run build:mac -- --publish never
-            npm run build:win -- publish never
+            npm run build:win -- --publish never
           else
             npm run build:mac
             npm run build:win
