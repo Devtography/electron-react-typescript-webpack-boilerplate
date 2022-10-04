@@ -62,17 +62,17 @@ jobs:
 
   bundle-linux:
     uses: ./.github/workflows/webpack.yml
-    needs: prepare-npm-cache-ubuntu
+    needs: test-ubuntu
     with:
       os: ubuntu-latest
   bundle-mac:
     uses: ./.github/workflows/webpack.yml
-    needs: prepare-npm-cache-macos
+    needs: test-macos
     with:
       os: macos-latest
   bundle-windows:
     uses: ./.github/workflows/webpack.yml
-    needs: prepare-npm-cache-windows
+    needs: test-windows
     with:
       os: windows-latest
 
