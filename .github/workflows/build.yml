@@ -6,13 +6,32 @@ on:
       os:
         required: true
         type: string
+      test-only:
+        required: false
+        type: boolean
 
 jobs:
+  setup-matrix:
+    runs-on: ${{ inputs.os }}
+    outputs:
+      node_versions: ${{ steps.generate-matrix.output.node-versions }}
+    steps:
+      - name: Generate matrix
+        id: generate-matrix
+        run: |
+          if [ "${{ inputs.test-only }}" = "true" ]; then
+            VERSIONS="[14.x, 16.x]"
+          else
+            VERSIONS="[16.x]"
+          fi
+          echo ::set-output name=node_versions::"$SERVICES"
+
   build-app-package:
+    needs: setup-matrix
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: ${{ fromJSON(needs.setup-matrix.outputs.node_versions) }}
     name: Build app package with Node v${{ matrix.node-version }} on ${{ inputs.os }}
     runs-on: ${{ inputs.os }}
 
@@ -48,10 +67,19 @@ jobs:
       - if: ${{ inputs.os == 'macos-latest' }}
         name: Build Windows & mac app packages on ${{ inputs.os }}
         run: |
-          npm run build:mac
-          npm run build:win
+          if [ "${{ inputs.test-only }}" = "true" ]; then
+            npm run build:mac -- --publish never
+            npm run build:win -- publish never
+          else
+            npm run build:mac
+            npm run build:win
+          fi
 
       - if: ${{ inputs.os == 'windows-latest' }}
         name: Build Windows app package on ${{ inputs.os }}
-        run: npm run build:win
-
+        run: |
+          if [ "${{ inputs.test-only }}" = "true" ]; then
+            npm run build:win -- --publish never
+          else
+            npm run build:win
+          fi

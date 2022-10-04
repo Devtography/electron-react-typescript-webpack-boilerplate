@@ -81,8 +81,10 @@ jobs:
     needs: bundle-mac
     with:
       os: macos-latest
+      test-only: true
   build-windows:
     uses: ./.github/workflows/build.yml
     needs: bundle-windows
     with:
       os: windows-latest
+      test-only: true
