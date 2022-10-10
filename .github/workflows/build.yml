@@ -1,0 +1,87 @@
+name: Build app package
+
+on:
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+      test-only:
+        required: false
+        type: boolean
+
+jobs:
+  setup-matrix:
+    runs-on: ${{ inputs.os }}
+    outputs:
+      node_versions: ${{ steps.generate-matrix.outputs.node_versions }}
+    steps:
+      - name: Generate matrix
+        id: generate-matrix
+        run: |
+          if [ "${{ inputs.test-only }}" = "true" ]; then
+            VERSIONS='["14.x", "16.x"]'
+          else
+            VERSIONS='["16.x"]'
+          fi
+          echo ::set-output name=node_versions::"$VERSIONS"
+        shell: bash
+
+  build-app-package:
+    needs: setup-matrix
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ${{ fromJSON(needs.setup-matrix.outputs.node_versions) }}
+    name: Build app package with Node v${{ matrix.node-version }} on ${{ inputs.os }}
+    runs-on: ${{ inputs.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+        
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Prepare Webpack bundle cache
+        id: cache-webpack-bundles
+        uses: actions/cache@v3
+        with:
+          path: ./dist
+          key: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}-webpack-${{ inputs.os }}
+
+      - name: Install
+        run: npm ci
+
+      - if: ${{ steps.cache-webpack-bundles.outputs.cache-hit != 'true' }}
+        name: Run webpack
+        run: npm run prod
+
+      - if: ${{ inputs.os == 'ubuntu-latest' }}
+        name: Build app package on ${{ inputs.os }}
+        run: |
+          echo "Build on Linux is not yet supported."
+          exit 1
+
+      - if: ${{ inputs.os == 'macos-latest' }}
+        name: Build Windows & mac app packages on ${{ inputs.os }}
+        run: |
+          if [ "${{ inputs.test-only }}" = "true" ]; then
+            npm run build:mac -- --publish never
+            npm run build:win -- --publish never
+          else
+            npm run build:mac
+            npm run build:win
+          fi
+
+      - if: ${{ inputs.os == 'windows-latest' }}
+        name: Build Windows app package on ${{ inputs.os }}
+        run: |
+          if [ "${{ inputs.test-only }}" = "true" ]; then
+            npm run build:win -- --publish never
+          else
+            npm run build:win
+          fi
+        shell: bash
