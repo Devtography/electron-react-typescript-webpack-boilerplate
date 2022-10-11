@@ -30,10 +30,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Update
 - Major version updates:
-  - `@types/jest` - `28.1.6` -> `29.0.2` ([#40])
-  - `jest` - `28.1.3` -> `29.0.3` ([#40])
-  - `ts-jest` - `28.0.7` -> `29.0.1` ([#40])
+  - `@types/jest` - `28.1.6` -> `29.1.2` ([#44])
+  - `eslint-plugin-jest` - `26.8.2` -> `27.1.1` ([#44])
+  - `jest` - `28.1.3` -> `29.1.2` ([#44])
+  - `ts-jest` - `28.0.7` -> `29.0.3` ([#44])
+- Minor & patch version updates:
+  - `@types/react` - `18.0.17` -> `18.0.21` ([#44])
+  - `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser` - `5.33.0` -> `5.40.0` ([#44])
+  - `electron-builder` - `23.3.3` -> `23.6.0` ([#44])
+  - `eslint` - `8.22.0` -> `8.25.0` ([#44])
+  - `eslint-import-resolver-typescript` - `3.4.1` -> `3.5.1` ([#44])
+  - `eslint-plugin-react` - `7.30.1` -> `7.31.10` ([#44])
+  - `ts-loader` - `9.3.1` -> 9.4.1` ([#44])
+  - `typescript` - `4.7.4` -> `4.8.4` ([#44])
 
+[#44]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/pull/44
 [#40]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/pull/40
 
 ## [v4.1.2] - 2022-08-15
