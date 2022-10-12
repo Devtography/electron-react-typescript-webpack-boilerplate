@@ -8,71 +8,46 @@
 A boilerplate that let you instantly start working on your next [Electron] app 
 project in [TypeScript] with no time wasted messing with the config files.
 
-- Ready to use [Electron] project template with [React], [Webpack] and
-  [TypeScript] seamlessly integrated.
+- Ready to use [Electron] project template with [React], [Webpack] and [TypeScript] seamlessly integrated.
 - [ESLint] set up with TypeScript, Airbnb's rules, and [Jest] support.
 - [Jest] integrated and configured.
-- [`electron-builder`] for app packaging, with basic build config for Windows 
-  macOS included.
-- Clean, easy to read and alter config files. No config file is hidden behind
-  yet another script!
+- [`electron-builder`] for app packaging, with basic build config for Windows macOS included.
+- Clean, easy to read and alter config files. No config file is hidden behind yet another script!
 - Monthly maintenance to keep things up to date!
 
-*This boilerplate is tested on the latest macOS and Windows. If anything 
-doesn't work, please [file an issue].*
+*This boilerplate is tested on the latest macOS and Windows. If anything doesn't work, please [file an issue].*
 
 ### Maintenance schedule
-Starting from [`v4.0.0`], this project is set to receive regular maintenances.
-New releases will be published on monthly basis to keep the package
-dependencies, package configurations and APIs / syntax up to date.
+Starting from [`v4.0.0`], this project is set to receive regular maintenances. New releases will be published on monthly basis to keep the package dependencies, package configurations and APIs / syntax up to date.
 
-Maintenance work will begin on 1st of each month, and expect the new version to
-be released within the first week of the month. New features from different
-tools integrated in this boilerplate might not always be implemented at once,
-especially on experimental features. If you want any particular feature to be
-implemented, please [file an issue], or consider make a [new pull request].
+Maintenance work will begin on 1st of each month, and expect the new version to be released within the first week of the month. New features from different tools integrated in this boilerplate might not always be implemented at once, especially on experimental features. If you want any particular feature to be implemented, please [file an issue], or consider make a [new pull request].
 
 ### Development plan
-- [ ] Develop a `create-react-app`-like NPX tool __!!!__
-  __*([working on it](https://github.com/Devtography/create-ertw-app))*__
+- [ ] Develop a `create-react-app`-like NPX tool __!!! *([working on it](https://github.com/Devtography/create-ertw-app))*__
 - [ ] Integrate another end-to-end testing framework to replace [Spectron]
 - [ ] Migrate to Webpack 5 `Asset Modules` __*(pending for `v4.2.0`)*__
 - [ ] Integrate HMR & Webpack dev server
-- [x] Monitor the status of ESM support on [Jest] & [ts-jest]
-  __*(Check [Known issues](#known-issues) for details)*__
+- [x] Monitor the status of ESM support on [Jest] & [ts-jest] __*(Check [Known issues](#known-issues) for details)*__
 
 ---
 
 ## 🚨 🚧 CAUTION 🚧 🚨
-- [Spectron] has officially been deprecated by the [Electron] team on
-  February 1, 2022, thus, its' integration has also been dropped from this
-  boilerplate on `v4+`.
+- [Spectron] has officially been deprecated by the [Electron] team on February 1, 2022, thus, its' integration has also been dropped from this boilerplate on `v4+`.
 
-  A replacement will be integrated in future version (pending for `v5`).
-  Currently evaluating different options including [Playwright] and
-  [WebdriverIO].
+  A replacement will be integrated in future version (pending for `v5`). Currently evaluating different options including [Playwright] and [WebdriverIO].
 
   *See - [Spectron Deprecation Notice]*
 
-- `mocha` has been dropped and replaced by [Jest] on `v4+`. If you're using
-  `mocha` as your unit testing framework, please reference to `package.json`
-  from [`v3.0.0`].
+- `mocha` has been dropped and replaced by [Jest] on `v4+`. If you're using `mocha` as your unit testing framework, please reference to `package.json` from [`v3.0.0`].
 
-- [ESLint] config file `.eslintrc.cjs` introduced in [`v4.1.0`] is written in
-  CommonJS syntax on purpose. As of the release of [`v4.1.0`], ESLint has yet
-  to support ES module for its' config file. __Converting the config file to
-  ES module will result in ESLint not working.__
+- [ESLint] config file `.eslintrc.cjs` introduced in [`v4.1.0`] is written in CommonJS syntax on purpose. As of the release of [`v4.1.0`], ESLint has yet to support ES module for its' config file. __Converting the config file to ES module will result in ESLint not working.__
 
-- As of [`v4.1.2`], [Jest] & [ts-jest] are __NOT__ configured to run the test
-  files as ES modules, despite all other sections of this boilerplate are
-  configured to support native ES modules. Please check
-  [Known issues](#known-issues) for details.
+- As of [`v4.1.2`], [Jest] & [ts-jest] are __NOT__ configured to run the test files as ES modules, despite all other sections of this boilerplate are configured to support native ES modules. Please check [Known issues](#known-issues) for details.
 
 ---
 
 ## Getting started
-1. Clone this repository, or if you're hosting your Electron project on GitHub,
-click [`Use this template`] to create a new project.
+1. Clone this repository, or if you're hosting your Electron project on GitHub, click [`Use this template`] to create a new project.
 
 2. Edit the following fields in `package.json` for your own project:
 
@@ -96,60 +71,33 @@ click [`Use this template`] to create a new project.
 
 3. `npm install` to install the dependencies.
 
-   *Please note that `optionalDependencies` should only be omitted on your
-   CI/CD pipeline for unit testing. It's meant to save some bandwidth. You'll
-   need all the packages listed for development.*
+   *Please note that `optionalDependencies` should only be omitted on your CI/CD pipeline for unit testing. It's meant to save some bandwidth. You'll need all the packages listed for development.*
 
-Done! Now run `npm run dev` to start the Webpack in development and watch mode.
-It's time to start working on your project.
+Done! Now run `npm run dev` to start the Webpack in development and watch mode. It's time to start working on your project.
 
-Be aware that starting Webpack will only compile your files to `dist` folder
-but won't start the Electron app. Use `npm start` command to start your
-Electron app once the files are compiled.
+Be aware that starting Webpack will only compile your files to `dist` folder but won't start the Electron app. Use `npm start` command to start your Electron app once the files are compiled.
 
-__*Starting from `v4.0.0`, you no longer need to manually config your module
-path alias in `webpack.config.js`. All module path alias set in `tsconfig.json`
-will be configured in Webpack automatically thanks to [`tsconfig-paths`] and
-[`tsconfig-paths-webpack-plugin`].*__
+__*Starting from `v4.0.0`, you no longer need to manually config your module path alias in `webpack.config.js`. All module path alias set in `tsconfig.json` will be configured in Webpack automatically thanks to [`tsconfig-paths`] and [`tsconfig-paths-webpack-plugin`].*__
 
 ## Build your Electron app package
-Different from the official [Electron quick start guide], this boilerplate uses
-[`electron-builder`] instead of [Electron Forge] to package your Electron app.
+Different from the official [Electron quick start guide], this boilerplate uses [`electron-builder`] instead of [Electron Forge] to package your Electron app.
 
-By default, the build configuration in `package.json` is configured to build the
-mac universal package (for Apple Silicon & Intel based machines) and Windows
-`exe` installer (both 32 & 64 bit). You should not need to change anything in
-the build script other than supplying the app icon unless you need to sign your
-code/package or build for Linux.
+By default, the build configuration in `package.json` is configured to build the mac universal package (for Apple Silicon & Intel based machines) and Windows `exe` installer (both 32 & 64 bit). You should not need to change anything in the build script other than supplying the app icon unless you need to sign your code/package or build for Linux.
 
-For code signing and notarization, or to build for Linux, please read
-[`electron-builder`'s document] for configuring the build script.
+For code signing and notarization, or to build for Linux, please read [`electron-builder`'s document] for configuring the build script.
 
-To package your Electron app, run `npm run prod` to get your code compiled in
-`production` mode, then use `npm run  build:(win|mac)` to build the package.
+To package your Electron app, run `npm run prod` to get your code compiled in `production` mode, then use `npm run  build:(win|mac)` to build the package.
 
 ## Known issues
-- [`electron-builder`] packages the file into Electron's `asar` archive format
-  by default. Based on past experiences with old Electron & `electron-builder`
-  versions, this might lead to runtime error on Windows while launching the
-  installed Electron app. 
+- [`electron-builder`] packages the file into Electron's `asar` archive format by default. Based on past experiences with old Electron & `electron-builder` versions, this might lead to runtime error on Windows while launching the installed Electron app. 
 
-  One way to verify this issue is to build the mac package and see if your app
-  runs fine on mac. If it's the case, you can override the `asar` archive
-  option in the build configuration in `package.json` by adding `asar: false`
-  in `win` section.
+  One way to verify this issue is to build the mac package and see if your app runs fine on mac. If it's the case, you can override the `asar` archive option in the build configuration in `package.json` by adding `asar: false` in `win` section.
   
-  This solution isn't ideal but since `asar` archiving is
-  meant to improve performance of reading files if bundler like Webpack is not
-  being used. The app packaging workflow defined in this boilerplate already
-  uses Webpack to minify your code in `production` builds, so there shouldn't
-  be any significant performance difference with `asar` archiving disabled.
+  This solution isn't ideal but since `asar` archiving is meant to improve performance of reading files if bundler like Webpack is not being used. The app packaging workflow defined in this boilerplate already uses Webpack to minify your code in `production` builds, so there shouldn't be any significant performance difference with `asar` archiving disabled.
 
 - __IMPORTANT!!!__
 
-  As of [`v4.1.2`], the `jest.mock()` function is broken if [Jest] and [ts-jest]
-  are configured with [ESM Support]. The following code will result in a
-  `SyntaxError` being thrown when trying to execute the test with Jest.
+  As of [`v4.1.2`], the `jest.mock()` function is broken if [Jest] and [ts-jest] are configured with [ESM Support]. The following code will result in a `SyntaxError` being thrown when trying to execute the test with Jest.
 
   ```ts
   import { jest } from '@jest/globals';
@@ -167,16 +115,9 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   SyntaxError: The requested module 'electron' does not provide an export named 'BrowserWindow'
   ```
 
-  The current solution is to keep using the non ESM supported version of
-  `jest.config.js`, but with `NODE_OPTIONS=--experimental-vm-modules` set when
-  running Jest (already set in [`v4.1.2`]). The drawback of this is you won't
-  be able to use `import.meta` APIs in your code. It could be a deal breaker for
-  some of you.
+  The current solution is to keep using the non ESM supported version of `jest.config.js`, but with `NODE_OPTIONS=--experimental-vm-modules` set when running Jest (already set in [`v4.1.2`]). The drawback of this is you won't be able to use `import.meta` APIs in your code. It could be a deal breaker for some of you.
   
-  I'm closely monitoring the situation atm, and I'll consider rollback the ESM
-  related setting introduced in [`v4.1.0`] if there's no progress made solving
-  this issue by the time I prepare the release of `v4.2.0`. You can track the
-  progress on a related issue [facebook/jest #10025] if you want.
+  I'm closely monitoring the situation atm, and I'll consider rollback the ESM related setting introduced in [`v4.1.0`] if there's no progress made solving this issue by the time I prepare the release of `v4.2.0`. You can track the progress on a related issue [facebook/jest #10025] if you want.
 
 [ESM Support]: https://kulshekhar.github.io/ts-jest/docs/guides/esm-support/
 [facebook/jest #10025]: https://github.com/facebook/jest/issues/10025
@@ -185,8 +126,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 - `.github/` - GitHub repo config & GitHub Actions workflows
 - `dist/` - [Webpack] output location
 
-  __Contents will be flushed automatically on execution of `npm run <dev|prod>`
-  script.__
+  __Contents will be flushed automatically on execution of `npm run <dev|prod>` script.__
 
 - `out/` - [`electron-builder`] output location
 
@@ -197,8 +137,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 
   - `style.css` - `CSS` file location sample
 
-    Not much defined in this file. You can either put your `CSS` settings here
-    or use any other tools you prefer.
+    Not much defined in this file. You can either put your `CSS` settings here or use any other tools you prefer.
 
 - `src/` - Folder for all your source code
   - `main/` - For modules which run on the `main` process.
@@ -207,8 +146,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   - `preload` - Preload scripts go here
     - `ipc-api.ts` - APIs for IPC between `main` & `renderer`
 
-      Consider convert this module into a collection of submodules if you have
-      many APIs for IPC. See example as below:
+      Consider convert this module into a collection of submodules if you have many APIs for IPC. See example as below:
       ```ts
       // ipc-api/index.ts
       import submoduleA from './submodule-a.js';
@@ -233,9 +171,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 
     - `preload.ts` - [Electron] preload script entry point
 
-      There should be no need to modify this file unless you want to use other
-      key(s) for your IPC APIs. By default, all APIs defined in `ipc-api`
-      module are exposed under key `ipcApi` in `contextBridge`.
+      There should be no need to modify this file unless you want to use other key(s) for your IPC APIs. By default, all APIs defined in `ipc-api` module are exposed under key `ipcApi` in `contextBridge`.
 
   - `renderer/` - Where the frontend scripts stay
     - `App.tsx` - Root [React] component
@@ -246,23 +182,16 @@ To package your Electron app, run `npm run prod` to get your code compiled in
   - `types/` - Home for self-defined `.d.ts` files
     - `global.d.ts` - Extends global scope interfaces
 
-      This file includes ambient declaration for calling the IPC APIs defined in
-      `preload/ipc-api` from the `renderer`. Remember __NOT__ to remove this
-      part, otherwise TypeScript will tell you `type not exist`. However, if
-      you've opted to use a different key other than `ipcAPI` in the preload
-      script, __DO__ remember to update this file to match your own settings.
+      This file includes ambient declaration for calling the IPC APIs defined in `preload/ipc-api` from the `renderer`. Remember __NOT__ to remove this part, otherwise TypeScript will tell you `type not exist`. However, if you've opted to use a different key other than `ipcAPI` in the preload script, __DO__ remember to update this file to match your own settings.
 
   - `utils/` - Place to store the helper scripts
     - `node-env.ts` - Shortcut to determine `NODE` environment
 
 - `tests/` - Unit testing files location
   
-  To avoid test files mixing up with the source code, [Jest] is configured to
-  look for test file(s) within this folder only.
+  To avoid test files mixing up with the source code, [Jest] is configured to look for test file(s) within this folder only.
   
-  File name of the test files can either be `[filename].test.tsx` or
-  `[filename].spec.ts(x)`. `js(x)` can also be used for test files, but I assume
-  you'd use TypeScript if you're using this boilerplate.
+  File name of the test files can either be `[filename].test.tsx` or `[filename].spec.ts(x)`. `js(x)` can also be used for test files, but I assume you'd use TypeScript if you're using this boilerplate.
 
   - `main/main.spec.ts` - Sample test file for `src/main/main`
   - `utils/node-env.spec.ts` - Unit test for `src/utils/node-env`
@@ -270,8 +199,7 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 - `.eslintignore` - [ESLint] ignore file
 - `.eslintrc.cjs` - [ESLint] config file
 
-  Configured to use Airbnb's rules with [TypeScript] supported, and rules for
-  [Jest] applied.
+  Configured to use Airbnb's rules with [TypeScript] supported, and rules for [Jest] applied.
 
 - `.gitignore` - Git ignore file
 - `CHANGELOG_PRE_V4.md` - Changelog of this boilerplate prior to `v4.0.0`
@@ -284,29 +212,20 @@ To package your Electron app, run `npm run prod` to get your code compiled in
 - `package-lock.json`
 - `package.json`
 
-  Includes basic build config for `electron-builder`. It's likely that you'll
-  have to personalise the build config when it comes to the time you're about
-  to release your app. Please read [`electron-builder`'s document] for the
-  build config setup guides.
+  Includes basic build config for `electron-builder`. It's likely that you'll have to personalise the build config when it comes to the time you're about to release your app. Please read [`electron-builder`'s document] for the build config setup guides.
 
 - `README.md`
 - `tsconfig.eslint.json` - [TypeScript] config file consume by [ESLint].
 - `tsconfig.json` - [TypeScript] config file
 
-  Module path aliases are configured here. [Jest] & [Webpack] will pick up the
-  alias settings here to config their own. No need to manually config in Jest
-  & Webpack again.
+  Module path aliases are configured here. [Jest] & [Webpack] will pick up the alias settings here to config their own. No need to manually config in Jest & Webpack again.
 
 - `webpack.config.json` - [Webpack] config file
 
-  Includes configurations targetting `electron-main`, `electron-preload`, and
-  `electron-renderer` respectively.
+  Includes configurations targetting `electron-main`, `electron-preload`, and `electron-renderer` respectively.
 
 ## Donation
-Maintaining this project takes time, lots of cups of coffee, and I do it for
-free. Consider buy me some coffee via [GitHub Sponsors] or [PayPal]. 100% of
-your donation will fund my coffee buying budget for quality coffee beans from
-great roasters I know 😉 ☕️️
+Maintaining this project takes time, lots of cups of coffee, and I do it for free. Consider buy me some coffee via [GitHub Sponsors] or [PayPal]. 100% of your donation will fund my coffee buying budget for quality coffee beans from great roasters I know 😉 ☕️️
 
 ## Author
 [Wing Chau](https://github.com/iamWing) [@Devtography](https://github.com/Devtography)
