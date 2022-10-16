@@ -4,6 +4,10 @@ All notable changes to this project on `v4+` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.3...HEAD
+
+## [v4.1.3] - 2022-10-16
 ### Added
 - GitHub community standards & related workflows([#39](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/pull/39))
 - GitHub workflows for CI.
@@ -43,6 +47,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 [#44]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/pull/44
 [#40]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/pull/40
+[v4.1.3]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.2...v4.1.3
 
 ## [v4.1.2] - 2022-08-15
 ### Added
@@ -64,6 +69,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - `eslint` - `8.21.0` -> `8.22.0`
   - `eslint-import-resolver-typescript` - `3.4.0` -> `3.4.1`
 
+[v4.1.2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.1...v4.1.2
+
 ## [v4.1.1] - 2022-08-10
 ### Fixed
 - Cannot find module issue reported by TypeScript server on relative imports after setting up native ES module support in [v4.1.0].
@@ -76,6 +83,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - `@types/react` - `18.0.15` -> `18.0.17`
   - `@typescript-eslint/eslint-plugin` & `@typescript-eslint/parser` - `5.32.0` -> `5.33.0`
   - `eslint-plugin-jest` - `26.7.0` -> `26.8.2`
+
+[v4.1.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.0...v4.1.1
 
 ## [v4.1.0] - 2022-08-07
 ### Added
@@ -116,6 +125,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Removed
 - `eslint-import-resolver-webpack` *- Not being used in any part of the boilerplate*
 - `lodash` *- Replaced by `webpack-merge` for its' usage in `webpack.config.js`*
+
+[v4.1.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.0.0...v4.1.0
 
 ## [v4.0.0] - 2022-07-22
 ### Added
@@ -184,8 +195,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `@types/mocha`, `mocha`, `ts-node` *- Replaced by `@types/jest`, `jest` & `ts-jest`*
 - `spectron` *- Deprecated package; No replacement*
 
-[Unreleased]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.2...HEAD
 [v4.0.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v3.0.0...v4.0.0
-[v4.1.0]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.0.0...v4.1.0
-[v4.1.1]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.0...v4.1.1
-[v4.1.2]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/compare/v4.1.1...v4.1.2

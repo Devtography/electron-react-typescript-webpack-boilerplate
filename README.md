@@ -23,11 +23,11 @@ Starting from [`v4.0.0`], this project is set to receive regular maintenances. N
 Maintenance work will begin on 1st of each month, and expect the new version to be released within the first week of the month. New features from different tools integrated in this boilerplate might not always be implemented at once, especially on experimental features. If you want any particular feature to be implemented, please [file an issue], or consider make a [new pull request].
 
 ### Development plan
-- [ ] Develop a `create-react-app`-like NPX tool __!!! *([working on it](https://github.com/Devtography/create-ertw-app))*__
+- [ ] Develop a `create-react-app`-like NPX tool __!!! *(pending)*__
 - [ ] Integrate another end-to-end testing framework to replace [Spectron]
 - [ ] Migrate to Webpack 5 `Asset Modules` __*(pending for `v4.2.0`)*__
 - [ ] Integrate HMR & Webpack dev server
-- [x] Monitor the status of ESM support on [Jest] & [ts-jest] __*(Check [Known issues](#known-issues) for details)*__
+- [ ] Introduce `v5.x-beta` releases based on `v4.x` with ESM support.
 
 ---
 
@@ -42,12 +42,18 @@ Maintenance work will begin on 1st of each month, and expect the new version to 
 
 - [ESLint] config file `.eslintrc.cjs` introduced in [`v4.1.0`] is written in CommonJS syntax on purpose. As of the release of [`v4.1.0`], ESLint has yet to support ES module for its' config file. __Converting the config file to ES module will result in ESLint not working.__
 
-- As of [`v4.1.2`], [Jest] & [ts-jest] are __NOT__ configured to run the test files as ES modules, despite all other sections of this boilerplate are configured to support native ES modules. Please check [Known issues](#known-issues) for details.
+- ESM support introduced in [`v4.1.2`] has been reversed in [`v4.1.3`] as enabling ESM support has caused some incompatibilities with popular packages (e.g. `MUI`) without workarounds. A separate `v5.x-beta` branch will be released in the near future with ESM enabled by default.
 
 ---
 
 ## Getting started
-1. Clone this repository, or if you're hosting your Electron project on GitHub, click [`Use this template`] to create a new project.
+1. Clone this repository with the following `git clone` command:
+
+   ```sh
+   git clone --depth 1 --branch master https://github.com/Devtography/electron-react-typescript-webpack-boilerplate.git
+   ```
+
+   Alternatively, if you're hosting your Electron project on GitHub, click [`Use this template`] to create a new project.
 
 2. Edit the following fields in `package.json` for your own project:
 
@@ -95,32 +101,17 @@ To package your Electron app, run `npm run prod` to get your code compiled in `p
   
   This solution isn't ideal but since `asar` archiving is meant to improve performance of reading files if bundler like Webpack is not being used. The app packaging workflow defined in this boilerplate already uses Webpack to minify your code in `production` builds, so there shouldn't be any significant performance difference with `asar` archiving disabled.
 
-- __IMPORTANT!!!__
+## Contributing
+Development of Electron-React-Typescript-Webpack(ERTW) Boilerplate happens 100% open on GitHub, all contributions on bugfixes and improvements are welcomed. Read below to learn how you can take part in improving this boilerplate.
 
-  As of [`v4.1.2`], the `jest.mock()` function is broken if [Jest] and [ts-jest] are configured with [ESM Support]. The following code will result in a `SyntaxError` being thrown when trying to execute the test with Jest.
+### [Code of Conduct](CODE_OF_CONDUCT.md)
+A simple Code of Conduct has been adopted and all project participants are expected to adhere to. Please read [the full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
-  ```ts
-  import { jest } from '@jest/globals';
-  import { BrowserWindow } from 'electron';
+### [Contributing Guide](CONTRIBUTING.md)
+Read the [contributing guide](CONTRIBUTING.md) to learn about the development process, how to propose bugfixes and improvements, and how to build and test your changes to ERTW Boilerplate.
 
-  jest.mock('electron', () => {
-    BrowserWindow: jest.fn().mockImplementation(() => {
-      loadFile: jest.fn(() => Promise.resolve()),
-      on: jest.fn(),
-    }),
-  });
-  ```
-
-  ```
-  SyntaxError: The requested module 'electron' does not provide an export named 'BrowserWindow'
-  ```
-
-  The current solution is to keep using the non ESM supported version of `jest.config.js`, but with `NODE_OPTIONS=--experimental-vm-modules` set when running Jest (already set in [`v4.1.2`]). The drawback of this is you won't be able to use `import.meta` APIs in your code. It could be a deal breaker for some of you.
-  
-  I'm closely monitoring the situation atm, and I'll consider rollback the ESM related setting introduced in [`v4.1.0`] if there's no progress made solving this issue by the time I prepare the release of `v4.2.0`. You can track the progress on a related issue [facebook/jest #10025] if you want.
-
-[ESM Support]: https://kulshekhar.github.io/ts-jest/docs/guides/esm-support/
-[facebook/jest #10025]: https://github.com/facebook/jest/issues/10025
+### Donation
+Maintaining this project takes time, lots of cups of coffee, and I do it for free. Consider buy me some coffee via [GitHub Sponsors] or [PayPal]. 100% of your donation will fund my coffee buying budget for quality coffee beans from great roasters I know 😉 ☕️️
 
 ## Project folders & files
 - `.github/` - GitHub repo config & GitHub Actions workflows
@@ -149,8 +140,8 @@ To package your Electron app, run `npm run prod` to get your code compiled in `p
       Consider convert this module into a collection of submodules if you have many APIs for IPC. See example as below:
       ```ts
       // ipc-api/index.ts
-      import submoduleA from './submodule-a.js';
-      import submoduleB from './submodule-b.js';
+      import submoduleA from './submodule-a';
+      import submoduleB from './submodule-b';
 
       export default { ...submoduleA, ...submoduleB };
 
@@ -224,9 +215,6 @@ To package your Electron app, run `npm run prod` to get your code compiled in `p
 
   Includes configurations targetting `electron-main`, `electron-preload`, and `electron-renderer` respectively.
 
-## Donation
-Maintaining this project takes time, lots of cups of coffee, and I do it for free. Consider buy me some coffee via [GitHub Sponsors] or [PayPal]. 100% of your donation will fund my coffee buying budget for quality coffee beans from great roasters I know 😉 ☕️️
-
 ## Author
 [Wing Chau](https://github.com/iamWing) [@Devtography](https://github.com/Devtography)
 
@@ -261,3 +249,4 @@ Electron React TypeScript Webpack Boilerplate is open source software
 [`v4.0.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.0.0
 [`v4.1.0`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.1.0
 [`v4.1.2`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.1.2
+[`v4.1.3`]: https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/releases/tag/v4.1.3
