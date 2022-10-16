@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals';
 import { BrowserWindow } from 'electron';
-import { exportedForTests } from '_main/main.js';
+import { exportedForTests } from '_main/main';
 
 jest.mock('electron', () => ({
   app: {

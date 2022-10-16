@@ -1,0 +1,38 @@
+name: Webpack CI
+
+on:
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+
+jobs:
+  build-bundle:
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [14.x, 16.x]
+    name: Build Webpack bundles with Node v${{ matrix.node-version }} on ${{ inputs.os }}
+    runs-on: ${{ inputs.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Cache Webpack bundles
+        id: cache-webpack-bundles
+        uses: actions/cache@v3
+        with:
+          path: ./dist
+          key: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}-webpack-${{ inputs.os }}
+
+      - name: Install
+        run: npm ci
+      - name: Run webpack
+        run: npm run prod

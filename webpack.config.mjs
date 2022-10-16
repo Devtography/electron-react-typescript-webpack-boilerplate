@@ -20,7 +20,7 @@ const commonConfig = {
   output: { path: path.join(__dirname, 'dist') },
   node: { __dirname: false, __filename: false },
   plugins: [
-    new webpack.NormalModuleReplacementPlugin(/.*\/+.+\.js$/, (resource) => {
+    new webpack.NormalModuleReplacementPlugin(/^\S+\/\S+\.js$/, (resource) => {
       // eslint-disable-next-line no-param-reassign
       resource.request = resource.request.replace(/\.js$/, '');
     }),
@@ -68,7 +68,6 @@ const mainConfig = merge(commonConfig, {
             const jsonContent = JSON.parse(content);
             const electronVersion = jsonContent.devDependencies.electron;
 
-            delete jsonContent.type;
             delete jsonContent.devDependencies;
             delete jsonContent.optionalDependencies;
             delete jsonContent.scripts;

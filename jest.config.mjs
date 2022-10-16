@@ -21,23 +21,22 @@ function pathsToESModuleNameMapper() {
     const [key, val] = entry;
 
     if (/.*\(\.\*\)\$$/.test(key)) {
-      const convertedKey = `${key.substring(0, key.length - 1)}\\.js$`;
+      // eslint-disable-next-line prefer-template
+      const convertedKey = key.substring(0, key.length - 2)
+        + '[^\\.js])(\\.js)?$';
       esmMap[convertedKey] = val;
     }
-
-    esmMap[key] = val;
   });
+
+  // Append the mapping for relative paths without path alias.
+  esmMap['^(\\.{1,2}/.*)\\.js$'] = '$1';
 
   return esmMap;
 }
 
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
   testEnvironment: 'node',
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json',
-    },
-  },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   moduleNameMapper: pathsToESModuleNameMapper(),
   modulePathIgnorePatterns: [
@@ -46,10 +45,15 @@ export default {
     '<rootDir>/out',
   ],
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.json',
+      },
+    ],
   },
   testMatch: [
-    '**/tests/**/*.(spec|test).(ts?(x)|js?(x))',
+    '**/tests/**/*.(spec|test).([jt]s?(x))',
   ],
   collectCoverage: true,
   verbose: true,

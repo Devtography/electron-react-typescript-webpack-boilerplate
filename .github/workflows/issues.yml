@@ -1,0 +1,25 @@
+name: 'Close issues'
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  questions:
+    name: Questions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close issue
+        uses: peter-evans/close-issue@v2
+        if: "${{ github.event.label.name == ':speech_ballon: Question' }}"
+        with:
+          comment: Please note this issue tracker is not a help forum. We recommend using [Discussions](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/discussions) for questions.
+  bug-without-repro:
+    name: Bug reports without reproductions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close issue
+        uses: peter-evans/close-issue@v2
+        if: "${{ github.event.label.name == 'Needs Reproduction' }}"
+        with:
+          comment: As noted in the [Bug Report template](https://github.com/Devtography/electron-react-typescript-webpack-boilerplate/blob/develop/.github/ISSUE_TEMPLATE/bug.yml), all bug reports require a minimal reproduction. Please open a new issue providing one. Read more at https://stackoverflow.com/help/minimal-reproducible-example.

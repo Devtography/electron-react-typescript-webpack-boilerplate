@@ -89,8 +89,10 @@ const specialConfig = {
   files: [
     '**/*.config.js',
     '**/*.config.cjs',
+    '**/*.config.mjs',
     '**/*.config.*.js',
     '**/*.config.*.cjs',
+    '**/*.config.*.mjs',
   ],
   rules: {
     ...baseConfig.rules,
