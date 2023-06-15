@@ -23,3 +23,7 @@ test('func createWindow()', () => {
   createWindow();
   expect(BrowserWindow).toHaveBeenCalledTimes(1);
 });
+
+test('fail assertion', () => {
+  fail();
+});
