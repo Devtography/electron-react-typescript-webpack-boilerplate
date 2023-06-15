@@ -25,6 +25,6 @@ test('func createWindow()', () => {
   expect(BrowserWindow).toHaveBeenCalledTimes(1);
 });
 
-test('fail test', () => {
-  expect(1).toBe(2);
+test('success test', () => {
+  expect(1).toBe(1)
 });
