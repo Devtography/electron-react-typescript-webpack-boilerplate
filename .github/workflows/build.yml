@@ -47,7 +47,7 @@ jobs:
 
       - name: Prepare Webpack bundle cache
         id: cache-webpack-bundles
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ./dist
           key: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}-webpack-${{ inputs.os }}
